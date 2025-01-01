@@ -1,0 +1,21 @@
+---
+layout: default
+--- 
+
+<link rel=stylesheet href={{ "/assets/css/post.css" | relative_url }} />
+<h1 id="title-post">{{ page.title }}</h1>
+<date datetime={{ page.date }}>
+  <i>Published on </i> {{ page.date | date: "%d %B %y" }}
+</date>
+
+<link rel="stylesheet"  href={{ "/assets/css/toc.css" | relative_url }} />
+<div id="toc">
+  <div id="toc-title">Contents</div>
+  {% toc %}
+</div>
+
+<article>
+  {{ content | kramdown }}
+</article>
+
+<script src={{ "/assets/js/footnotes.js" | relative_url }}></script>

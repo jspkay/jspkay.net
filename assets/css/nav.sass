@@ -1,0 +1,48 @@
+--- 
+
+--- 
+
+@import "media_rules"
+
+.current
+  color: #000000 
+
+nav
+  background: #F45B69
+  padding: 1em
+  display: flex
+  flex-direction: column
+  width: 100%
+
+  div:not(:first-child)
+    display: none
+
+  .icon
+    float: right
+    display: block !important 
+    position: absolute
+    right: 0
+
+  a
+    font-size: 1.5em
+    text-decoration: none
+    margin-right: 1em
+    color: white
+
+
+nav.show-menu
+
+  div:not(:first-child)
+    display: block
+
+@media (min-width: $layout-breakpoint-small)
+  nav
+    flex-direction: row 
+    position: sticky
+    top:0
+
+    div
+      display: block !important
+
+    .icon
+      display: none !important

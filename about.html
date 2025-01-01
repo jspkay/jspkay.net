@@ -1,0 +1,16 @@
+---
+layout: page
+--- 
+
+<h1>About</h1>
+
+{% for author in site.authors %}
+    <p>My name is </p>
+        <h3>
+            {{ author.name }}
+        </h3>
+    <h3>{{ author.position }}</h3>
+    <p>{{ author.content | markdownify }}</p>
+{% endfor %}
+
+

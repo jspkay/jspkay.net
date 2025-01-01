@@ -1,0 +1,14 @@
+--- 
+title: jspkay - blog 
+layout: page
+--- 
+
+<div id="latests">
+  <h1>Latests</h1>
+  {% for post in site.posts %}
+  <div class="latest-list" >
+    <h2><a href="{{post.url}}">{{post.title}}</a></h2>
+    {{post.preview}}
+  </div>
+  {% endfor %}
+</div>

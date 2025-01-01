@@ -1,0 +1,55 @@
+--- 
+
+--- 
+
+@import "colors"
+@import "media_rules"
+
+article
+  max-width: 43em
+  margin: 0 auto
+
+h1
+  margin-top: 1em
+  text-align: left
+
+h2
+  margin-top: 1em
+
+h1#title-post
+  color: black
+  text-align: center
+
+p 
+  text-indent: 1em
+  text-align: justify
+  margin-bottom: 0.3em
+
+article > p:first-of-type::first-letter
+  font-size: 2em
+  initial-letter: 2
+  
+.dialog
+  margin-left: 2em
+  text-indent: 0
+
+.spacing
+  margin-top: 2.5em
+
+date
+  float: right
+  margin-right: 20%
+
+div.footnotes ol 
+  list-style: decimal
+
+  li
+    list-style: decimal
+
+    p 
+      text-indent: 0
+
+@media screen and (min-width: $layout-breakpoint-xtra-large)
+  #title-post
+    position: sticky
+    top: 0.25em

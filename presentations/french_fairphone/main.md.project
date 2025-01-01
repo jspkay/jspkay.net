@@ -1,0 +1,213 @@
+---
+backgroundImage: nil
+theme: uncover
+paginate: true
+---
+
+<!-- _paginate: skip -->
+
+
+<!-- _backgroundImage: "linear-gradient(rgb(78, 160, 244) 18.42%, rgb(108, 96, 181) 110.36%)" -->
+
+<!-- ![logo](img/f_logo_white.svg) -->
+![phone](img/328.webp)
+
+<!-- # FairPhone -->
+
+--- 
+<!-- _backgroundImage: "linear-gradient(rgb(78, 160, 244) 18.42%, rgb(108, 96, 181) 110.36%)" -->
+# Un peu d'histoire
+
+## La guerre de Kivu
+
+---
+
+# 3TG 
+### Les Minéraux de Conflict
+
+- Tin (Étain)
+- Tungstène
+- Tantale
+- Gold (Or)
+
+
+---
+
+<!-- backgroundImage: nil -->
+
+
+![bg left](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Kivuconflict.png/260px-Kivuconflict.png)
+
+République Democratique du Congo (RDC)
+
+<!-- _footer: source: wikipedia (guerre de Kivu) -->
+
+--- 
+
+- Richesse de minéraux prériceux (e.g. or, tungst)
+- Cela a provoqué des conflicts depuis 2004
+- Règlements européens introduits en 2017
+
+<!-- La République Democratique du Congo a un passé conflictuel à cause, soi-disant, de la richesse -->
+<!-- _footer: source: wikipedia (guerre de Kivu) -->
+---
+
+# Droit humaine
+
+La guerre de l'RDC a causé
+- l'exploitation des enfants, 
+- violence sexuelle,
+- violence generale.
+<!-- _footer: source: wikipedia (Kivu conflict) -->
+
+---
+
+<!-- _backgroundImage: "linear-gradient(rgb(78, 160, 244) 18.42%, rgb(108, 96, 181) 110.36%)" -->
+
+Dans ce contexte, en 2013 naît
+
+# Fairphone
+
+---
+
+
+(EN) **fair** : équitable, juste
+
+---
+
+### 1. Extraction non-conflictuelle
+
+![width:600px](img/fairtrade.png)
+
+<!-- Tout en extrayant de l'or au pérou, fairphone travaille en RDC avec des groupes de défense des droits de l'homme -->
+
+<!-- _footer: Fairphone’s Fair Sourcing Policy (Fairphone) -->
+
+---
+
+### 2. Aide pour le mineurs
+
+
+![bg left:45%](img/aide_mineurs.png)
+
+- Sensibilisation des gents,
+- rendre les sites miniers plus sûrs
+- prévention et atténuation du travail des enfants,
+- ...
+
+<!-- _footer: Fairphone’s Fair Sourcing Policy (Fairphone) -->
+
+---
+
+<!-- _backgroundImage: "linear-gradient(rgb(78, 160, 244) 18.42%, rgb(108, 96, 181) 110.36%)"-->
+<!-- _paginate: false -->
+
+# L'impact
+
+---
+
+
+![img](img/greenpeace.png)
+
+<!-- En 2017, l'association greenpeace a fait un analyse pour comprendre que chaqun fait par rapport à l'environment. 
+L'objectif est de mesurer trois secteurs: l'energie, la consommation des reources et les produit chemiques.
+-->
+
+<!-- _footer: Guide to Greener Electronics (Greenpeace) -->
+
+---
+
+![img](img/greenpeace_detail.png)
+
+<!-- Energie: quand CO2 l'enterprise sauve par l'utilisasion de energie renouvelables,
+Resources consommation; durabilitè du design et utilisasion de materiaux recyclables,
+Produit Chemiques:  Élimination des produits chimiques dangereux
+du produit lui-même et de la fabrication
+-->
+
+<!-- _footer: Guide to Greener Electronics (Greenpeace) -->
+
+---
+
+<!-- _backgroundImage: "linear-gradient(rgb(78, 160, 244) 18.42%, rgb(108, 96, 181) 110.36%)"-->
+<!-- _paginate: false -->
+
+# Fairphone 5
+---
+
+### Focus Materials
+
+![bg left Focus materials width:600px](img/materials.png)
+
+70% du poids viens <br> de sources <br> "fair" ou recyclé
+
+<!-- _footer: Fair Materials Sourcing Rodmap 2023 (Fairphone) -->
+
+<!-- La photo montre les 14 materiaux de focus dans le produit
+42% de ces materiaux est sourcé durablement et 70% vien de source "fair" ou recyclés
+iphone 15 juste "20% ode materiaux recyclés ou recyclables"
+-->
+
+---
+
+### Modularité et Reparabilité
+
+![bg left:55%](img/modularity.gif)
+
+---
+
+### Durabilitè
+
+<!--[bg left](img/durability.gif)-->
+![bg left:63% width:98%](img/parts.png)
+
+**5 ans** garantie
+et 
+**8 ans** de support de logiciels
+
+---
+
+### Personnalisabilité
+
+![bg left width:90%](img/customizability.jpg)
+
+Beaucoup de OS custom prêt à installer
+
+
+---
+
+<!-- paginate: false -->
+<!-- _backgroundImage: "linear-gradient(rgb(78, 160, 244) 18.42%, rgb(108, 96, 181) 110.36%)" -->
+### Conclusions
+
+---
+
+### The guardian
+
+> The most ethical, sustainable and repairable handset gets a big upgrade with even longer support
+
+<!-- _footer: Fairphone 4 review: ethical repairable phone gets big upgrade (theguardian.com) -->
+---
+
+### The Verge
+
+> It's not for people who love buying new phones, <br> it's for those who hate saying <br> goodbye to their old ones
+
+<!-- _footer: The Fairphone 5 is less about what comes in the box and more about what you get over the years (The Verge) -->
+
+---
+
+![bg fin width:45%](img/Fin_black.png)
+
+--- 
+
+# Sources
+
+- ["How Fair is Fairphone", Medium, 2018](https://medium.com/@sophiejeanwilson/how-fair-is-fairphone-f3f0e046e40d)
+- ["Fairphone, bon plan ou galère ? Des utilisateurs témoignent", Frandroid, 2022](https://www.frandroid.com/marques/fairphone/1224295_fairphone-est-ce-un-bon-plan-ou-une-galere-des-utilisateurs-temoignent)
+- https://www.fairphone.com/en/2023/08/30/is-the-fairphone-5-the-most-sustainable-phone-in-the-world/
+- https://www.theverge.com/23895548/fairphone-5-review-price-features
+
+
+
+
