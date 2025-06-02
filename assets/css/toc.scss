@@ -43,6 +43,12 @@
 
 }
 
+@media screen and (max-width: $layout-breakpoint-small ){
+  #toc {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: $layout-breakpoint-xtra-large){
   #toc {
     position: sticky;

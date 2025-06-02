@@ -5,6 +5,30 @@
 @import "colors"
 @import "media_rules"
 
+// main Layout 
+
+main  
+  display: grid
+
+h1#title-post
+  gtid-row: 1
+  grid-column: 1 / 4
+
+article
+  grid-row: 2 / 4
+  grid-column: 2 / 3
+
+div#toc
+  grid-row: 2 / 3
+  grid-column: 1
+
+date
+  grid-row: 2
+  grid-column: 3
+
+
+// Others 
+//
 article
   max-width: 43em
   margin: 0 auto
@@ -48,6 +72,13 @@ div.footnotes ol
 
     p 
       text-indent: 0
+
+@media screen and (max-width: $layout-breakpoint-small)
+  article
+    padding: 0 2em
+
+  main
+    display: block
 
 @media screen and (min-width: $layout-breakpoint-xtra-large)
   #title-post
