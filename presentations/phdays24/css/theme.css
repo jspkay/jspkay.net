@@ -1,0 +1,671 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+	  font-family: Cambria, Bitstream Vera Serif, Times New Roman, serif; 
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* General global variables */
+:root{
+  --white: #FFFFFF;
+  --black: #3c3c3c;
+	--pink: #F45B69;
+	--blue: #5079A5;
+	--txt_dark: #301D35;
+	--txt_light: #ffffff;
+	--yellow_dark: #CC9600;
+	--yellow_light: #ffd972;
+	--green: #5CC1B0;
+
+  --accent1: #FFB1B8;
+  --accent2: #fff2ca;
+
+  --width: 1536px;
+  --height: 864px;
+  --wpadding: 384px;
+  --hpadding: 216px;
+}
+
+@font-face {
+  font-family: ScriptinaPro;
+  src: url("../fonts/ScriptinaPro.otf") format("opentype");
+  src: url("../fonts/ScriptinaPro.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: Cambria;
+  src: local("Cambria") 
+    url("../fonts/Cambria-Font-For-Linux.ttf")
+    url("../fonts/Cambria-Font-For-MAC.ttf")
+    url("../fonts/Cambria-Font-For-Windows.ttf")
+    url("../fonts/Cambria-Font-For Android.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+    Now here is when interesting things start to appear.
+
+    We set up <body> styles with default font and nice gradient in the background.
+    And yes, there is a lot of repetition there because of -prefixes but we don't
+    want to leave anybody behind.
+*/
+body {
+    /* font-family: 'PT Sans', sans-serif; */
+    min-height: 740px;
+
+    background: var(--pink);
+}
+
+/*
+    Now let's bring some text styles back ...
+*/
+b, strong { font-weight: bold }
+i, em { font-style: italic }
+
+/*
+    ... and give links a nice look.
+*/
+a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+    border-radius: 0.2em;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a:hover,
+a:focus {
+    background: rgba(255,255,255,1);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+}
+
+h1{
+  font-size: 85pt;
+  color: var(--black);
+}
+h2{
+  font-size: 50pt;
+  color: var(--black);
+}
+p{
+  font-size: 50pt;
+  color: var(--black);
+} 
+h3{
+  font-size: 65pt;
+}
+
+/*
+    Because the main point behind the impress.js demo is to demo impress.js
+    we display a fallback message for users with browsers that don't support
+    all the features required by it.
+
+    All of the content will be still fully accessible for them, but I want
+    them to know that they are missing something - that's what the demo is
+    about, isn't it?
+
+    And then we hide the message, when support is detected in the browser.
+*/
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border: 1px solid #E4C652;
+    border-radius: 10px;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+div#madewith{
+  position: absolute;
+  bottom: 5%;
+  right: 1%;
+  z-index: 1000;
+}
+div#madewith p{
+  font-size: 15pt !important;
+}
+
+div.step {
+  width: var(--width); /* 100rem seems a good number. */
+  height: var(--height); /* the height has been obtained with the 1080p ratio*/ 
+  padding: var(--hpadding) var(--wpadding);
+
+  display: flex;
+  flex-direction: column;
+
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0;
+}
+
+div.step.future{
+   opacity: 0; 
+}
+div.step.past {
+  opacity: 1;
+}
+
+p.source {
+  position: absolute;
+  bottom: 5%;
+  left: 20%;
+  background: white;
+  color: var(--black);
+  font-size: 20pt;
+}
+
+
+/* title slide */
+#title h1 {
+  align-self: cente;
+  text-align: center;
+}
+#titleh2{
+  display:flex;
+  align-items: center;
+  flex-grow: 10;
+  justify-content: center;
+}
+#title h2{
+  color: var(--black);
+}
+#title * {
+  color: var(--white);
+}
+div#title-supervisors{
+}
+div#title-supervisors h3{
+  color: white;
+  font-size: 35pt;
+}
+div#title-supervisors h4{
+  font-size: 30pt;
+}
+
+
+video{
+  position:absolute;
+  top: 0;
+  left: 0;
+  height:100%;
+  width: 100%;
+}
+
+div#werenotalone h1{
+  width: 75%;
+}
+div#werenotalone h2 {
+  position: absolute;
+  bottom: 20%;
+  font-size: 35pt;
+}
+
+/* Radiation on earth */
+
+div#gamma-ray{
+  align-items: center;
+}
+
+div#start-video-gamma,
+div#start-gamma-ray-sky {
+  width: calc( var(--width) * 0.8 );
+  height: calc( var(--height) * 0.8 );
+}
+div#start-video-gamma p, 
+div#start-gamma-ray-sky p{
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  font-size: 30pt;
+  background-color: white;
+}
+div#start-video-gamma h1{
+	position: absolute;
+	font-size: 50pt;
+	width: 30%;
+	text-align: left;
+	left: 10%;
+  color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+div#expl-gamma-ray-sky{
+  z-index: 10
+}
+div#expl-gamma-ray-sky h1 {
+  position: absolute;
+  font-size: 50pt;
+  width: 30%;
+  text-align: left;
+  left: 10%;
+  color: #ffffff;
+  z-index: 11;
+}
+div#expl-gamma-ray-sky p{
+  font-size: 40pt;
+  width: 60%;
+  text-align: left;
+  bottom: 30%;
+  left: 10%;
+  position: absolute;
+  color: white; /* rgb(200, 200, 200); */
+}
+
+/* Cosmic Rays and Single Event Upset */
+div.seu{
+  background-color: white;
+  border-radius: 100px;
+}
+
+div#cosmic-rays h1{
+  margin-bottom: 5%;
+}
+div#cosmic-rays div {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+div#cosmic-rays p{
+  margin-left: 10%;
+}
+div#cosmic-rays p.source {
+  bottom: 13%;
+  width: 20%;
+  right: 15%;
+  margin-left: 0;
+  left: unset;
+  text-align: left;
+}
+
+div#seu-on-phone{
+  flex-direction: column;
+}
+div#seu-on-phone h1{
+  margin-bottom: 5%;
+}
+div#seu-on-phone > div{
+  display: flex;
+  flex-direction: row;
+}
+div#seu-on-phone > div > div {
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+}
+div#seu-on-phone > div > div img{
+  margin-bottom: 10%;
+}
+div#seu-on-phone p.source{
+  bottom: 15%;
+  left: 15%; 
+  width: 20%;
+}
+
+div#no-more-kittens{
+  align-items: center;
+  flex-direction: row;
+}
+div#no-more-kittens > div:nth-child(2){
+  width: 120%;
+}
+div#no-more-kittens img{
+  width: 100%;
+}
+
+div#seriuosly-though{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+div#seriuosly-though h1{
+  margin-bottom: 5%;
+}
+div#seriuosly-though p.source{
+  width: 20%;
+  bottom: 13%;
+  left: 15%;
+}
+
+/* Temporal Redundancy */
+div.future.temporal-redundancy {
+  opacity: 0;
+}
+
+div.temporal-redundancy{
+  text-align: center;
+  background-color: var(--accent1); /*#ff3355; */
+  border-radius: 100px;
+}
+
+div#closedcar > div{
+  display:flex;
+  align-items: center;
+  width:100%;
+  height: 100%;
+}
+div#closedcar img{
+  margin-left: 5%;
+}
+
+/* Spatial redundancy */
+div.future.spatial-redundancy {
+  opacity: 0;
+}
+
+div.spatial-redundancy{
+  text-align: center;
+  background-color: var(--accent2);
+  border-radius:100px;
+}
+
+div#spatial-redundancy-directions {
+  overflow: hidden;
+  border-radius: 100px 100px 0 0;
+}
+
+div#temporal-redundancy-explaination{
+  justify-content: center;
+  align-items: center;
+}
+div#temporal-redundancy-explaination p{
+  margin-bottom: 10%;
+}
+div#temporal-redundancy-explaination div{
+  width: 80%;
+}
+
+div#temporal-redundancy-explaination img{
+  width:100%;
+}
+
+div#spatial-redundancy-tmr {
+  flex-direction: row;
+  border-radius: 0 0 100px 100px;
+  align-items: center;
+}
+div#spatial-redundancy-tmr img{
+  width: 100%;
+}
+div#spatial-redundancy-tmr div:first-child{
+  width: 32%;
+  margin: 10%;
+}
+div#spatial-redundancy-tmr div:nth-child(2){
+  width: 78%;
+}
+
+/* Redundancy is costly */
+div#redundancy-expensive{
+  transition: none;
+}
+div#redundancy-expensive.future {
+  /* opacity: 0; */
+}
+div#redundancy-background {
+  background-color: #ffffff;
+  position: absolute;
+  transform: translate3d(0, 0, -100px);
+  height: 2100px; /* 1250px; */
+  width: 1567px;
+  z-index: -1;
+  border-radius: 100px;
+}
+
+div#redundancy-expensive-final{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div#redundancy-expensive-final div:nth-child(1){
+  flex-grow:5;
+}
+div#redundancy-expensive-final div:nth-child(2){
+  flex-grow:1;
+  /* background-color: white; */
+  border-radius: 20px;
+  padding:1%;
+}
+div#redundancy-expensive-final p {
+  color: white;
+}
+
+/* Approximation */
+div.axc{
+  text-align: center;
+  align-items: center;
+}
+
+div#axc-joke{
+  overflow: hidden;
+}
+div#axc-joke div{
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div#axc-joke img{
+  width: 57%; /* 80%; */
+  margin-top: 5%; /* 20%; */
+  border-radius: 40px;
+}
+
+div#leading-digit-axc > div{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10%;
+}
+div#leading-digit-axc > div > div:first-child {
+  margin: 0 5% 0 0;
+}
+div#leading-digit-axc > div > div:nth-child(2) {
+  margin: 0 0 0 5%;
+}
+
+div#leading-digit-axc-mult > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+div#leading-digit-axc-mult div {
+  margin-bottom: 7%;
+}
+div#leading-digit-axc-mult > div > div:first-child {
+  margin: 0 5% 0 0;
+}
+div#leading-digit-axc-mult > div > div:nth-child(2) {
+  margin: 0 0 0 5%;
+}
+
+div#axc-mults {
+  flex-direction: column;
+}
+div#axc-mults > div:nth-child(1){
+  margin-bottom: 10%;
+}
+
+div#axc-baseline{
+  flex-direction: column;
+}
+div#axc-baseline div:first-child{
+
+}
+div#axc-baseline div:nth-child(2){
+  width: 80%;
+}
+
+div#axc-results{
+  flex-direction: column;
+}
+div#axc-results div:nth-child(2){
+  width:110%;
+}
+div#axc-results div:first-child{
+  margin-bottom: 10%;
+}
+
+div#axc-results-highlight.next, 
+div#axc-results-highlight.future {
+  opacity: 0;
+}
+div#axc-results-highlight{
+  align-items: center;
+}
+div#axc-results-highlight svg{
+  width: 110%;
+  height: 100%;
+}
+
+
+div#axc-end{
+  justify-content: center;
+}
+
+/* Experiments and results */
+div.eandr{
+  background-color: white;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.eandr img{
+  width: 100%;
+}
+
+div#lenet{
+  flex-direction: column;
+}
+div#lenet > div:first-child{
+  width: 100%;
+}
+div#lenet > div:nth-child(3){
+  position: absolute;
+  left: 3%;
+  top:74%;
+  width:23%;
+}
+
+
+div#wedidexperiments{
+  justify-content: center;
+}
+
+div#evoapproxlib{
+  flex-direction: column;
+  overflow: hidden;
+}
+div#evoapproxlib > div:first-child{
+  margin-bottom: 10%;
+}
+
+div#results > div{
+  width:100%;
+}
+
+div#axc-gain{
+  flex-direction: column;
+}
+div#axc-gain div {
+  margin-top: 5%;
+  width: 70%;
+}
+
+/* Thanks and End */
+div#thanks {
+  justify-content: center;
+  align-items: center;
+}
+div#thanks img {
+  width: 43%;
+}
+div.theend{
+  position: absolute;
+  right: 0%;
+  left: 0;
+  bottom: 20%;
+  text-align: center;
+}
+div.theend p {
+  /* font-family: ScriptinaPro; */
+}
+
+div#answer{
+  text-align:center;
+  padding-top: 40rem;
+}
+
+div#what-to-do {
+  text-align: center;
+  opacity: 1 !important;
+}
+
