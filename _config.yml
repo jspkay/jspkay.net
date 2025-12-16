@@ -18,6 +18,9 @@ defaults:
     values:
       layout: "default"
 
+include:
+  - media/
+  
 plugins:
   - jekyll-toc
 
