@@ -1,9 +1,5 @@
---- 
-
---- 
-
-@import "colors"
-@import "media_rules"
+@use "colors"
+@use "media_rules"
 
 main 
   padding: 0.5em 
@@ -16,5 +12,5 @@ main
     list-style: circle inside
 
 html
-  background: $snow
+  background: colors.$snow
 

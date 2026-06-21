@@ -1,0 +1,49 @@
+#toc-title {
+  font-size: 1.5em;
+  color: white;
+}
+
+#toc {
+  background: #F45B69;
+  padding: 1em;
+  max-width: 43em;
+  width: 25em;
+  margin: 5em auto;
+  border-radius: 0 10px 0 10px;
+}
+#toc a {
+  color: black;
+  text-decoration: none;
+}
+#toc li {
+  list-style-type: none;
+  margin-top: 0.2em;
+  background: #FBF5F3;
+  padding: 0.5em;
+  border-radius: 0 10px 0 10px;
+}
+#toc li li {
+  margin-left: 1em;
+  padding-bottom: 0.25em;
+  padding: 0.1em;
+  margin-top: 0;
+  border-radius: 0 5px 0 5px;
+}
+
+@media screen and (max-width: 600px) {
+  #toc {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #toc {
+    position: sticky;
+    top: 5em;
+    left: 0;
+    float: left;
+    shape-outside: inset(50%);
+    min-width: 17em;
+    max-width: 25em;
+    width: auto !important;
+  }
+}

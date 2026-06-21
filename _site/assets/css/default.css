@@ -1,0 +1,14 @@
+main {
+  padding: 0.5em;
+  margin: 0 auto;
+}
+main > li {
+  list-style: none;
+}
+main li {
+  list-style: circle inside;
+}
+
+html {
+  background: #FBF5F3;
+}

@@ -1,8 +1,4 @@
---- 
-
---- 
-
-@import "media_rules"
+@use "media_rules" as md
 
 .current
   color: #000000 
@@ -35,7 +31,7 @@ nav.show-menu
   div:not(:first-child)
     display: block
 
-@media (min-width: $layout-breakpoint-small)
+@media (min-width: md.$layout-breakpoint-small)
   nav
     flex-direction: row 
     position: sticky

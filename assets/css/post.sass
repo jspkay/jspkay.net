@@ -1,9 +1,5 @@
---- 
-
---- 
-
-@import "colors"
-@import "media_rules"
+@use "colors"
+@use "media_rules" as mr
 
 // main Layout 
 
@@ -73,14 +69,14 @@ div.footnotes ol
     p 
       text-indent: 0
 
-@media screen and (max-width: $layout-breakpoint-small)
+@media screen and (max-width: mr.$layout-breakpoint-small)
   article
     padding: 0 2em
 
   main
     display: block
 
-@media screen and (min-width: $layout-breakpoint-xtra-large)
+@media screen and (min-width: mr.$layout-breakpoint-xtra-large)
   #title-post
     position: sticky
     top: 0.25em

@@ -1,0 +1,92 @@
+main {
+  display: grid;
+}
+
+h1#title-post {
+  gtid-row: 1;
+  grid-column: 1/4;
+}
+
+article {
+  grid-row: 2/4;
+  grid-column: 2/3;
+}
+
+div#toc {
+  grid-row: 2/3;
+  grid-column: 1;
+}
+
+date {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+article {
+  max-width: 43em;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 1em;
+  text-align: left;
+}
+
+h2 {
+  margin-top: 1em;
+}
+
+h1#title-post {
+  color: black;
+  text-align: center;
+}
+
+p {
+  text-indent: 1em;
+  text-align: justify;
+  margin-bottom: 0.3em;
+}
+
+article > p:first-of-type::first-letter {
+  font-size: 2em;
+  initial-letter: 2;
+}
+
+.dialog {
+  margin-left: 2em;
+  text-indent: 0;
+}
+
+.spacing {
+  margin-top: 2.5em;
+}
+
+date {
+  float: right;
+  margin-right: 20%;
+}
+
+div.footnotes ol {
+  list-style: decimal;
+}
+div.footnotes ol li {
+  list-style: decimal;
+}
+div.footnotes ol li p {
+  text-indent: 0;
+}
+
+@media screen and (max-width: 600px) {
+  article {
+    padding: 0 2em;
+  }
+  main {
+    display: block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #title-post {
+    position: sticky;
+    top: 0.25em;
+  }
+}

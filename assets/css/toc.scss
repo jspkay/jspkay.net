@@ -1,9 +1,5 @@
---- 
-
---- 
-
-@import "colors";
-@import "media_rules";
+@use "colors";
+@use "media_rules" as ms;
 
 #toc-title{
   font-size: 1.5em;
@@ -11,7 +7,7 @@
 }
 
 #toc{
-  background: $pink; // $amber;
+  background: colors.$pink; // $amber;
   padding: 1em;
   max-width: 43em;
   width: 25em;
@@ -27,7 +23,7 @@
     list-style-type: none;
     // margin-bottom: 1em;
     margin-top: 0.2em;
-    background: $snow; // $moonstone;
+    background: colors.$snow; // $moonstone;
     padding:0.5em;
     border-radius: 0 10px 0 10px;
 
@@ -36,20 +32,20 @@
       padding-bottom: 0.25em;
       padding: 0.1em;
       margin-top: 0;
-      // background: $dark-blue;
+      // background: colors.$dark-blue;
       border-radius: 0 5px 0 5px;
     }
   }
 
 }
 
-@media screen and (max-width: $layout-breakpoint-small ){
+@media screen and (max-width: ms.$layout-breakpoint-small ){
   #toc {
     width: 100%;
   }
 }
 
-@media screen and (min-width: $layout-breakpoint-xtra-large){
+@media screen and (min-width: ms.$layout-breakpoint-xtra-large){
   #toc {
     position: sticky;
     top: 5em;

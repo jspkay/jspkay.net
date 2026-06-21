@@ -1,9 +1,9 @@
 <!-- font-awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="{{ '/assets/js/nav.js' | relative_url }}" ></script>
+<script src="{{ '/assets/js/nav.js' }}" ></script>
 <nav>
 
-  {% for item in site.data.navigation %}
+  {% for item in navigation %}
   <div >
     <a href="{{ item.link }}" 
       {% if page.url == item.link %}

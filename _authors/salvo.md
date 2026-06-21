@@ -1,6 +1,7 @@
 ---
 short_name: salvo
 name: Salvo
+tags: author
 --- 
 
 Although my official name is Salvatore Pappalardo, everybody calls me Salvo.

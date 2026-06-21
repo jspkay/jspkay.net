@@ -1,5 +1,6 @@
 --- 
-layout: post
+layout: post.html
+tags: post
 toc: true
 preview: Rediscovering reading,  I report an interesting story found in a Sicilian book. It involves a little city in the east of Sicily and the Turkish conquerors of the 16th century.
 title: A Sicilian Story

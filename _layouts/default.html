@@ -10,16 +10,14 @@
     <!-- bookerly font -->
     <!-- <link href="https://fonts.cdnfonts.com/css/bookerly" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href={{"/assets/css/reset.css" | relative_url}} />
-    <link rel="stylesheet" href={{"/assets/css/default.css" | relative_url }} />
-
-    <link rel="stylesheet" href={{"/assets/css/nav.css" | relative_url}} />
-
+    <link rel="stylesheet" href="/assets/css/reset.css"  />
+    <link rel="stylesheet" href="/assets/css/default.css"  />
+    <link rel="stylesheet" href="/assets/css/nav.css"  />
   </head>
   <body>
-    {% include navigation.html %}
+    {% include 'navigation' %}
     <main>
-    {{ content }}
+      {{ content }}
     </main>
   </body>
 </html>
