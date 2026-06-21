@@ -4,9 +4,14 @@ layout: page.html
 
 # Presentations
 
-## [Ternary Logic: a brief Introduction](/presentations/terary_logic1)
+## [Ternary Logic: a brief Introduction](/presentations/ternary_logic1)
 
-Presentation made for a workshop for TAICHIP introducing the ternary logic and ternary computers
+During my postdoc, I found out a [paper](https://arxiv.org/abs/1605.04711) about ternary-weights neural networks.
+As it turns out, this way of implementing Neural Networks is pretty efficient, showing a [100% accuracy with respect to the full-precision model](https://github.com/microsoft/BitNet). 
+These idea, sparked some interest in me about ternary logic, in general. For this reason, I prepared this presentation, introducing the terary logic principles, some history of ternary computers and the applications that today can benefit from this paradigm.
+
+Nevertheless, I should warn you that this presentation isn't very informative without a speaker. Yet, you can find useful references! :)
+
 
 ## [PhD Days 24](/presentations/phdays24)
 

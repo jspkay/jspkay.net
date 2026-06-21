@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<title>A special number: 3</title>
+
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/serif.css" />
+
+		<style>
+			a{
+				text-decoration: underline !important;
+			}
+
+			i {
+				font-style: italic !important;				
+			}
+
+			:root{
+				--r-main-font: "EB Garamond", "Garamond", "Times New Roman", serif;
+				--r-heading-font: "EB Garamond", "Garamond", "Times New Roman", serif;		
+				// --r-background-color: #ffeeee;
+			}
+		
+			.reveal {
+				overflow-wrap: break-word;
+			}
+		
+			.reveal h1{
+				font-size: 7.5rem;
+			}
+
+			.reveal h2{
+				font-size: 5rem;
+			}
+
+			.reveal .two-columns{
+				column-count: 2;
+				column-gap: 10%;
+			}
+
+			blockquote::before {
+			  content: "\201C";
+			}
+
+			blockquote::after {
+			  content: "\201D";
+			}			
+
+			.reveal .slide-number {
+				font-size: 1.3rem;
+			}
+ 
+			p.citation{
+				font-size: 1.7rem;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			img.cited{
+				margin-bottom:0;
+			}
+
+			right-align {
+				text-align: right !important;
+			}
+
+			td.right-bordered, th.right-bordered{
+				border-right: 6px solid black
+			}
+			.left-bordered * {
+				border-left: 3px solid black
+			}
+			.top-bordered * {
+				border-top: 3px solid black
+			}
+			.bottom-bordered * {
+				border-bottom: 3px solid black
+			}
+
+			.bordered table,
+			.bordered td,
+			.bordered tr,
+			.bordered th {
+				border: 3px solid black;
+			}
+
+			.rows-borders table,
+			.rows-borders td,
+			.rows-borders tr,
+			.rows-borders th {
+				border-bottom: 3px solid black;
+			}			
+
+			.floating-box{
+				position: absolute;
+				top: 30%;
+				margin: 0 15%;
+				padding: 10%;
+				background: white;
+				border:1px solid black;
+				width: 50%;
+			}
+
+			table *{
+				text-align: center !important;
+				vertical-align: middle;
+			}
+
+			div.double-column {
+				display: grid;
+				grid-template-columns: 50% 50%;
+			}
+			div.double-column *:nth-child(1){
+				grid-column: 1/1
+			}
+
+			div.double-column *:nth-child(2){
+				grid-column: 2/2
+			}
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class=title>
+					<h1>Ternary logic and ternary computers: A brief introduction</h1>
+					<h3 style="font-size: 2rem">Salvatore Pappalardo<h3>
+				</section>
+
+				<!-- Introduction -->
+				<section class="">
+					<section>
+							<h2>Modern Computers</h2>
+						<div class="two-columns">
+							<img src="media/bender-praying.jpg" style="width: 100%">
+							<br>
+							<blockquote>
+								0101011101101100010010101010100010101010110101000000011010101110111011010101000100001010010110101010001000010100
+							</blockquote>
+						</div>
+						<aside class="notes">
+						 	Our computer are based on the binary system - as funnily portraied by Bender from Futurama
+						</aside>
+					</section>
+					<section>
+					<iframe width="1920" height="1080" src="https://www.youtube.com/embed/wSpF9MnX0GU?si=lOseWTMnk-tKIGvV&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</section>
+				 </section>
+
+				<!-- Bases and introduction to base3 -->
+				<section class>
+					<section data-auto-animate >
+						<h2>Number Representations</h2>
+						<p>
+							We represent numbers using the positional system 
+							$$ N = d_0 r^0 + d_1 r^1 + d_2 r^2 + d_3 r^3 + \dots $$
+
+						</p>
+						<p>
+							For example, in base 10
+
+							$$ 48239 = 9 \cdot 10^0 + 3 \cdot 10^1 + 2 \cdot 10^2 + 8 \cdot 10^3 + 4 \cdot 10^4 $$
+						</p>
+						<p style="opacity:0" data-id="eq1">
+							It also works with negative powers:
+
+							$$ 0.352 = 0 \cdot 10^0 + 3 \cdot 10^{-1} + 5 \cdot 10^{-2} + 2 \cdot 10^{-3} $$
+						</p>
+					</section>
+					<section data-auto-animate >
+						<h2>Number Representations</h2>
+						<p>
+							We represent numbers using the positional system 
+							$$ N = d_0 r^0 + d_1 r^1 + d_2 r^2 + d_3 r^3 + \dots $$
+
+						</p>
+						<p>
+							For example, in base 10
+
+							$$ 48239 = 9 \cdot 10^0 + 3 \cdot 10^1 + 2 \cdot 10^2 + 8 \cdot 10^3 + 4 \cdot 10^4 $$
+						</p>
+						<p data-id="eq1">
+							It also works with negative powers:
+
+							$$ 0.352 = 0 \cdot 10^0 + 3 \cdot 10^{-1} + 5 \cdot 10^{-2} 2 + \cdot 10^{-3} $$
+						</p>
+					</section>
+
+					<section>
+						<h2>Base 2 - Binary</h2>
+						<p>
+							Base 2 works in the same way as Base 10.
+
+							$$ (10111)_2 = 1 \cdot 2^0 + 1 \cdot 2^1 + 1 \cdot 2^2 + 0 \cdot 2^3 + 1 \cdot 2^4 = (23)_{10} $$
+						</p>
+					</section>
+
+				</section>
+
+				<!-- Base3 Intro -->
+				<section>
+
+					<section data-auto-animate>
+						<h2>Why base 3?</h2>
+					</section>
+						<!-- Animatino -->
+						<section data-auto-animate style="text-align:left">
+							<h2 style="text-align:center">Why base 3?</h2>
+							<p style="text-align:center">Not all bases are equally good.</p>
+							<p>We can compute the cost of representing a value $n$ as the product of the <b>depth</b> of the alphabet and the <b>width</b> of the representation.</p>
+							<ol>
+								<li><b>detph</b>($d$): it is the amount of different letters in an a alphabet. Bigger bases need a bigger alphabet</li>
+								<li><b>width</b>($w$): how many letters to represent a value. Smaller bases need more <i>letters</i> to represent big values</li>
+							</ol>
+						</section>
+						<section data-auto-animate>
+							<h2 style="text-align:center">Why base 3?</h2>
+							<p style="text-align:center">Not all bases are equally good.</p>
+							<p style="text-align:left">We can compute the cost of representing a value $n$ as the product of the <b>depth</b> of the alphabet and the <b>width</b> of the representation.</p>
+							<ol>
+								<li><b>detph</b>($d$): it is the amount of different letters in an a alphabet. Bigger bases need a bigger alphabet</li>
+								<li><b>width</b>($w$): how many letters to represent a value. Smaller bases need more <i>letters</i> to represent big values</li>
+							</ol>
+							<br>
+							<p>For example:
+								$$ (10000)_{16} = (65'536)_{10} = (1\_0000\_0000\_0000\_0000)_{2}$$
+							</p>
+							<table class='rows-borders right-align' >
+								<tr>
+									<th>Base</th><th>Detph ($d$)</th><th>Width ($w$)</th><th>Cost ($w \cdot d$)</th>
+								</tr>
+								<tr>
+									<td>2</td><td>2</td><td>17</td><td>34</td>
+								</tr>
+								<tr>
+									<td>10</td><td>10</td><td>5</td><td>50</td>
+								</tr>
+								<tr>
+									<td>16</td><td>16</td><td>5</td><td>80</td>
+								</tr>
+							</table>
+						</section>
+
+					<section >
+							<h2>Let's add Base 3</h2>
+							<p>
+								$$ (10000)_{16} = (65'536)_{10} = \mathbf{(10\_022\_220\_021)_3}= (1\_0000\_0000\_0000\_0000)_{2}$$
+							</p>
+							<table class='rows-borders right-align' >
+								<tr>
+									<th>Base</th><th>Detph ($d$)</th><th>Width ($w$)</th><th>Cost ($w \cdot d$)</th>
+								</tr>
+								<tr>
+									<th>2</th><td>2</td><td>17</td><td>34</td>
+								</tr>
+								<tr>
+									<th>3</th><td>3</td><td>11</td><td>33</td>
+								</tr>
+								<tr>
+									<th>10</th><td>10</td><td>5</td><td>50</td>
+								</tr>
+								<tr>
+									<th>16</th><td>16</td><td>5</td><td>80</td>
+								</tr>
+							</table>
+					</section>
+
+					<section data-auto-animate>
+						<h2>Base three has the most compact representation</h2>
+						<p >
+							As it turns out, base 3 is the best (practical) base for representing numbers.
+						</p>
+						<img class=cited src="media/base_economy.png" style="width: 40%; border: 2px solid" />
+						<p class="citation">[Brian Hayes, "Third Base", American Scientist vol. 89 n. 6, 2001]</p>
+					</section>
+					<section data-auto-animate >
+						<h2>Base three has the most compact representation</h2>
+						<p >
+							As it turns out, base 3 is the best (practical) base for representing numbers.
+						</p>
+						<img class=cited src="media/base_economy.png" style="width: 40%; border: 2px solid" />
+						<p class="citation">[Brian Hayes, "Third Base", American Scientist vol. 89 n. 6, 2001]</p>
+
+						<div class="floating-box">
+							Wikipedia: Optimal Radix Choice
+						</div>
+					</section>
+
+					<section>
+						<h2>Why Base 3 ?</h2>
+						<ul>
+							<li>IoT devices generated 64.2 Zettabytes ($10^{21}$) in 2021</li>
+							<li>Moore's law is saturating </li>
+						</ul>
+						<tr>
+						<p> Need to have denser computers </p>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Using less components</h2>
+						<p>
+						In the 50s the hypotesis was that a computer's components count ($N$) would be proportional to the width ($w$) and the depth ($d$) of the representations of the numbers.
+						$$ N \propto w \cdot d $$
+						</p>
+					</section>
+				
+					<section data-auto-animate>
+						<h2>Using less components</h2>
+						<p>
+						In the 50s the hypotesis was that a computer's components count ($N$) would be proportional to the width ($w$) and the depth ($d$) of the representations of the numbers.
+						$$ N \propto w \cdot d $$
+						</p>
+
+						<p> It wasn't true...</p>
+					</section>
+
+					<section data-auto-animate>
+						<h2>Using less components</h2>
+						<p>
+						In the 50s the hypotesis was that a computer's components count ($N$) would be proportional to the width ($w$) and the depth ($d$) of the representations of the numbers.
+						$$ N \propto w \cdot d $$
+						</p>
+
+						<p> It wasn't true...</p>
+
+						<p>
+						In setun, a single trit (Ternary Digit) used a pair of magnetic cores $ \approx 1.58$ bits.<br>
+						The same pair could have held 2 bits.
+						</p>
+					</section>
+					<section>
+						<h2>Hope for the future</h2>
+						<p>
+							Ternary computer have failed due to the <b>cost of the <i>trit</i></b> (ternary digit, as opposed to bit)
+						</p>
+						<p>
+							Future technologies might overcome this barrier.
+						</p>
+					</section>
+				</section>
+
+
+				<section>
+					<section data-auto-animate>
+						<h2>Ternary Logic</h2>
+						<p> Wikipedia says that there are many different ways of doing ternary logic: </p>
+						<ul>
+							<li>The Kleene and Priest logic </li>
+							<li>Łukasiewicz logic</li>
+							<li>RM3 logic</li>
+							<li>HT logic</li>
+							<li><p>$ \cdots $</p></li>
+						</ul>
+					</section>
+
+					<section data-auto-animate>
+						<h2>Ternary Logic</h2>
+						<p> Wikipedia says that there are many different ways of doing ternary logic: </p>
+						<ul>
+							<li>The Kleene and Priest logic </li>
+							<li>Łukasiewicz logic</li>
+							<li>RM3 logic</li>
+							<li>HT logic</li>
+							<li><p>$ \cdots $</p></li>
+						</ul>
+						<h3>Mathematicians being mathematicians...</h3>
+					</section>
+
+					<section data-auto-animate >
+						<h2>And their representation</h2>
+						<ul>
+							<li><p>Ternary numeral system - $\{0,1,2\}$ </p></li>
+						</ul>
+					</section>
+					<section data-auto-animate >
+						<h2>And their representation</h2>
+						<ul>
+							<li><p>Ternary numeral system - $\{0,1,2\}$ </p></li>
+							<li><p>Balanced ternary - $\{-1, 0, 1\}$</p></li>
+							<li><p>Redundant binary presentation - $\{-1, 0, 0/1, 0/1\}$</p></li>
+							<li><p>$\cdots$</p></li>
+						</ul>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Standard Ternary Logic</h2>
+						<p>source: The Ternary Manifesto by Douglass W. Jones</p>
+
+					</section>
+
+					<section>
+						<h2> The constants </h2>
+						<table align="center" rules="groups" frame="void" summary="names, numeric values and abbreviations for ternary values">
+						  <caption align="bottom">
+						     <small><br></small>ternary values
+						  </caption>
+						  <thead>
+						  <tr><th>truth value                   </th><th>&nbsp; numeric &nbsp;</th><th> short form
+						  </th></tr></thead><tbody>
+						  <tr align="center"><td><i>true</i>    </td><td>  +1                 </td><td> +
+						  </td></tr><tr align="center"><td><i>unknown</i> </td><td>  &nbsp; 0           </td><td> 0
+						  </td></tr><tr align="center"><td><i>false</i>   </td><td>  –1           </td><td> –
+							</td></tr></tbody>
+						</table>
+					</section>
+
+					<section data-auto-animate>
+						<h2>Monadic Operators</h2>
+						<h3>i.e. unary operators </h3>
+							<table align="center" rules="groups" frame="void" summary="truth table">
+							  <colgroup>        </colgroup><colgroup span="4">
+							  </colgroup><thead>
+							  <tr><th class="right-bordered" >input&nbsp;</th><th>&nbsp; <i>false</i> &nbsp;
+							                                    </th><th><i>identity</i>
+													    </th><th>&nbsp; <i>not</i> &nbsp;
+															</th><th><i>true</i>
+							  </th></tr></thead><tbody>
+							  <tr align="center">
+							    <td class=right-bordered ><i>false</i> </td><td><i>false</i></td><td><i>false</i></td><td><i>true</i>
+															</td><td><i>true</i>
+							  </td></tr><tr align="center">
+							    <td class=right-bordered ><i>true</i>  </td><td><i>false</i></td><td><i>true</i> </td><td><i>false</i>
+															</td><td><i>true</i>
+							</td></tr></tbody></table>
+					</section>
+					<section data-auto-animate>
+						<h2>Monadic Operators</h2>
+						<h3>i.e. unary operators </h3>
+					<div class="floating-box" style="vertical-aling:middle; width:20rem; height:20rem; padding: 1rem; left: -10rem; top: 7.5rem">
+							<p>Monadic operators in binary: $2^2 = 4$ </p>
+							<p>Monadic operators in ternary: $3^3 = 27$ </p>
+						</div>
+						<div>
+							<table align="center" rules="groups" frame="void" summary="truth table">
+							  <colgroup>        </colgroup><colgroup span="4">
+							  </colgroup><thead>
+							  <tr><th class="right-bordered" >input&nbsp;</th><th>&nbsp; <i>false</i> &nbsp;
+							                                    </th><th><i>identity</i>
+													    </th><th>&nbsp; <i>not</i> &nbsp;
+															</th><th><i>true</i>
+							  </th></tr></thead><tbody>
+							  <tr align="center">
+							    <td class=right-bordered ><i>false</i> </td><td><i>false</i></td><td><i>false</i></td><td><i>true</i>
+															</td><td><i>true</i>
+							  </td></tr><tr align="center">
+							    <td class=right-bordered ><i>true</i>  </td><td><i>false</i></td><td><i>true</i> </td><td><i>false</i>
+															</td><td><i>true</i>
+							</td></tr></tbody></table>
+							</div>
+							<div>
+									<table style="font-size:2rem; margin-top:4rem" align="center" rules="groups" frame="void" summary="truth table for the 27 monadic ternary functions">
+									  <colgroup>        </colgroup><colgroup span="27">
+									  </colgroup><thead>
+									  <tr><th>input&nbsp;
+									       </th><th>&nbsp;<i>0</i>&nbsp;</th><th>      <i>1</i>      </th><th>&nbsp;<i>2</i>&nbsp;
+									       </th><th>      <i>3</i>      </th><th>&nbsp;<i>4</i>&nbsp;</th><th>      <i>5</i>
+									       </th><th>&nbsp;<i>6</i>&nbsp;</th><th>      <i>7</i>      </th><th>&nbsp;<i>8</i>&nbsp;
+									       </th><th>      <i>9</i>      </th><th>&nbsp;<i>A</i>&nbsp;</th><th>      <i>B</i>
+									       </th><th>&nbsp;<i>C</i>&nbsp;</th><th>      <i>D</i>      </th><th>&nbsp;<i>E</i>&nbsp;
+									       </th><th>      <i>F</i>      </th><th>&nbsp;<i>G</i>&nbsp;</th><th>      <i>H</i>
+									       </th><th>&nbsp;<i>K</i>&nbsp;</th><th>      <i>M</i>      </th><th>&nbsp;<i>N</i>&nbsp;
+									       </th><th>      <i>P</i>      </th><th>&nbsp;<i>R</i>&nbsp;</th><th>      <i>T</i>
+									       </th><th>&nbsp;<i>V</i>&nbsp;</th><th>      <i>X</i>      </th><th>&nbsp;<i>Z</i>&nbsp;
+									  </th></tr></thead><tbody>
+									  <tr align="center">
+									    <td>–
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+										   </td><td>–</td><td>   0   </td><td>  +
+									  </td></tr><tr align="center">
+									    <td>   0
+										   </td><td>–</td><td>–</td><td>–
+										   </td><td>   0   </td><td>   0   </td><td>   0   
+										   </td><td>   +   </td><td>   +   </td><td>   +   
+										   </td><td>–</td><td>–</td><td>–
+										   </td><td>   0   </td><td>   0   </td><td>   0   
+										   </td><td>   +   </td><td>   +   </td><td>   +   
+										   </td><td>–</td><td>–</td><td>–
+										   </td><td>   0   </td><td>   0   </td><td>   0   
+										   </td><td>   +   </td><td>   +   </td><td>   +   
+									  </td></tr><tr align="center">
+									    <td>   +
+										   </td><td>–</td><td>–</td><td>–
+										   </td><td>–</td><td>–</td><td>–
+										   </td><td>–</td><td>–</td><td>–
+										   </td><td>   0   </td><td>   0   </td><td>   0   
+										   </td><td>   0   </td><td>   0   </td><td>   0   
+										   </td><td>   0   </td><td>   0   </td><td>   0   
+										   </td><td>   +   </td><td>   +   </td><td>   +   
+										   </td><td>   +   </td><td>   +   </td><td>   +   
+										   </td><td>   +   </td><td>   +   </td><td>   +   
+									</td></tr></tbody></table>
+							</div>
+					</section>
+					<section>
+						<h2>Negation</h2>
+							<table class="bordered" rules="groups" frame="void" summary="truth table">
+							  <colgroup>        </colgroup><colgroup>
+							  </colgroup><thead>
+							  <tr><th>&nbsp; <i>a</i> &nbsp;
+							                      </th><th>&nbsp; <i>c</i> &nbsp;
+							  </th></tr></thead><tbody>
+							  <tr align="center">
+							    <td>–       </td><td>   +
+							  </td></tr><tr align="center">
+							    <td>   0          </td><td>   0
+							  </td></tr><tr align="center">
+							    <td>   +          </td><td>–   
+							</td></tr></tbody></table>
+							<img src="media/terneg.gif" style="width:25%" alt="graphical notation" />
+							<p> <i>c</i> = – <i>a</i> </p>
+					</section>
+
+					<section>
+						<h2>Increment and Decrement</h2>
+						<table>
+						<tr><td>Increment</td><td>Decrement</td></tr>
+						<tr>
+						<td>
+							<table class="bordered" rules="groups" frame="void" summary="truth table">
+					      <colgroup>        </colgroup><colgroup>
+					      </colgroup><thead>
+					      <tr><th>&nbsp; <i>a</i> &nbsp;
+					                          </th><th>&nbsp; <i>c</i> &nbsp;
+					      </th></tr></thead><tbody>
+					      <tr align="center">
+					        <td>–       </td><td>   0
+					      </td></tr><tr align="center">
+					        <td>   0          </td><td>   +
+					      </td></tr><tr align="center">
+					        <td>   +          </td><td>–  
+					    </td></tr></tbody></table>
+						</td>
+						<td>
+						<table rules="groups" class="bordered" frame="void" summary="truth table">
+      <colgroup>        </colgroup><colgroup>
+      </colgroup><thead>
+      <tr><th>&nbsp; <i>a</i> &nbsp;
+                          </th><th>&nbsp; <i>c</i> &nbsp;
+      </th></tr></thead><tbody>
+      <tr align="center">
+        <td>–       </td><td>   +
+      </td></tr><tr align="center">
+        <td>   0          </td><td>–
+      </td></tr><tr align="center">
+        <td>   +          </td><td>   0   
+    </td></tr></tbody></table>
+						</td>
+						</tr>
+							<tr>
+								<td><img src="media/terinc.gif" style="width:100%" alt="graphical notation" /></td>
+								<td><img src="media/terdec.gif" style="width:100%" alt="graphical notation" /></td>
+							</tr>
+							<tr>
+								<td><p> <i>c</i> = (a+1)</p></td>
+								<td><p> <i>c</i> = (a-1)</p></td>
+							</tr>
+							</table>
+					</section>
+
+					<section>
+						<h2>Decoders</h2>
+						<img src="media/decoders.png" style="width: 40%"/>
+					</section>
+					<section>
+						<h2>Decoders - II </h2>
+						<img src="media/terdecode.gif" style="width:45%"/>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Diadic Operators</h2>
+						<p> The diadic operators have two operands. </p>
+						<p>In standard binary logic, we have 16 possibilities ($2^4$). Not all of them are useful as there is some redundancy.</p>
+						<p>Some examples are: AND, OR, XOR, NOR, NAND, ...</p>
+						<p>Ternary logic has $3^9 = 19'683$  possibilities.
+					</section>
+
+					<section>
+						<h2> Ternary AND - a.k.a. MIN </h2>
+						<table align="center" summary="truth table, graphical and algebraic notation">
+  <tbody><tr><td>
+    <table rules="groups" class='bordered' frame="void" summary="truth table">
+      <colgroup span="2">         </colgroup><colgroup span="3">
+      </colgroup><thead>
+      <tr>
+        <th rowspan="2" colspan="2"> &nbsp; &nbsp; <i>c</i> &nbsp; &nbsp;
+                                  </th><th colspan="3"> <i>b</i>
+      </th></tr><tr align="center">
+        <th>&nbsp;–&nbsp;</th><th>&nbsp;0&nbsp;</th><th>&nbsp;+&nbsp;
+      </th></tr></thead><tbody>
+      <tr align="center"><th rowspan="3" style="vertical-align:middle"><i>a</i>
+                                  </th><th>–</th><td>–</td><td>–</td><td>–
+      </td></tr><tr align="center">         <th>   0   </th><td>–</td><td>   0   </td><td>   0
+      </td></tr><tr align="center">         <th>   +   </th><td>–</td><td>   0   </td><td>   +
+    </td></tr></tbody></table>
+  </td><td><img src="media/termin.gif"  alt="graphical notation">
+  </td><td>&nbsp; <i>c</i> = (<i>a</i> ∧ <i>b</i>)
+                      = <i>min</i>(<i>a</i>, <i>b</i>)
+</td></tr></tbody></table>
+					</section>
+
+					<section>
+						<h2> Ternary OR - a.k.a. MAX</h2>
+						<table align="center" summary="truth table, graphical and algebraic notation">
+  <tbody><tr><td>
+    <table rules="groups" class='bordered' frame="void" summary="truth table">
+      <colgroup span="2">         </colgroup><colgroup span="3">
+      </colgroup><thead>
+      <tr>
+        <th rowspan="2" colspan="2"> &nbsp; &nbsp; <i>c</i> &nbsp; &nbsp;
+                                  </th><th colspan="3"> <i>b</i>
+      </th></tr><tr align="center">
+        <th>&nbsp;–&nbsp;</th><th>&nbsp;0&nbsp;</th><th>&nbsp;+&nbsp;
+      </th></tr></thead><tbody>
+      <tr align="center"><th rowspan="3"><i>a</i>
+                                  </th><th>–</th><td>–</td><td>   0   </td><td>   +
+      </td></tr><tr align="center">         <th>   0   </th><td>   0   </td><td>   0   </td><td>   +
+      </td></tr><tr align="center">         <th>   +   </th><td>   +   </td><td>   +   </td><td>   +
+    </td></tr></tbody></table>
+  </td><td><img src="media/termax.gif" alt="graphical notation">
+  </td><td>&nbsp; <i>c</i> = (<i>a</i> ∨ <i>b</i>)
+                      = <i>max</i>(<i>a</i>, <i>b</i>)
+</td></tr></tbody></table>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>A simple example of circuit</h2>
+						<h3>A diadic (modulo-3) adder</h3>
+						<table align="center" summary="truth table, graphical and algebraic notation">
+  <caption align="bottom">
+     Modulo-3 Sum
+  </caption>
+  <tbody><tr><td>
+    <table rules="groups" class=bordered frame="void" summary="truth table">
+      <colgroup span="2">         </colgroup><colgroup span="3">
+      </colgroup><thead>
+      <tr>
+        <th rowspan="2" colspan="2"> &nbsp; &nbsp; <i>c</i> &nbsp; &nbsp;
+                                  </th><th colspan="3"> <i>b</i>
+      </th></tr><tr align="center">
+        <th>&nbsp;–&nbsp;</th><th>&nbsp;0&nbsp;</th><th>&nbsp;+&nbsp;
+      </th></tr></thead><tbody>
+      <tr align="center"><th rowspan="3"><i>a</i>
+                                  </th><th>–</th><td>   +   </td><td>–</td><td>   0
+      </td></tr><tr align="center">         <th>   0   </th><td>–</td><td>   0   </td><td>   +
+      </td></tr><tr align="center">         <th>   +   </th><td>   0   </td><td>   +   </td><td>–
+    </td></tr></tbody></table>
+  </td><td><img src="media/tersum.gif"  alt="graphical notation">
+  </td><td>&nbsp; <i>c</i> = (<i>a</i> + <i>b</i>)
+</td></tr></tbody></table>
+					</section>
+
+					<section>
+						<h2>adder - implementation</h2>
+						<img src="media/tersumadhoc.gif" style="width: 50%" />
+						<p>  (a + b)   =   ( (a = –1) ∧ (b – 1) )   ∨   ( (a = 0) ∧ (b) )   ∨   ( (a = +1) ∧ (b + 1) ) 
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Historical successes</h2>
+						<p>In the past 70 years there were some attempts at creating ternary computers</p>
+						<ul>
+							<li>Thomas Fowler's ternary machine</li>
+							<li>SETUN</li>
+							<li>SETUN 70</li>
+							<li>TERNAC</li>
+							<li>QTC-1</li>
+					</section>
+					<section>
+						<h2>The record: SETUN</h2>
+						<div style="display:flex; text-align:left; padding-left:10%">
+							<div style="flex-grow:3">
+								<p>It sold about 50 units.</p>
+								<p>Advantages:</p>
+								<ul>
+									<li>Utilized fewer elements than binary computers</li>
+									<li>For this reason, the power requirements were more limited</li>
+									<li>The ternary system is more efficient (information theory)</li>
+								</ul>
+
+								<p>Why it failed:</p>
+								<ul>
+									<li>Ternary circuits are unfamiliar to design</li>
+									<li>Binary circuit were more efficient</li>
+									<li>Inertia and conservatism of the scientific and engineering communities</li>
+								</ul>
+							</div>
+							<div style="flex-grow:1">
+								<img style="width:100%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Setun_computer%2C_from_Sputnik_in_1959.png/500px-Setun_computer%2C_from_Sputnik_in_1959.png">
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Why Ternary Today?</h2>
+						<ul>
+							<li>TCAMS</li>
+							<li>Ternary NNs</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Content Addressable Memory (CAM)</h2>
+						<div class=double-column>
+							<div style='text-align: left'>
+								<p>CAMs are memories that <i>work upside-down.</i></p>
+								<p>Given the content, the output is the address where that content lives.</p>
+								<p>CAMs are used in many applications: </p>
+								<ul style="padding-left: 1em">
+									<li>Network Routers</li>
+									<li>Fully Associative Cache</li>
+									<li>Decision Trees Inference</li>
+								</ul>
+							</div>
+							<div><img src="./media/cam.png" /></div>
+						</div>
+					</section>
+					<section>
+						<h2>Ternary CAMs</h2>
+						<div class=double-column>
+							<div>
+								<p>The ''Ternary'' in TCAM means that we add a third state</p>
+								<p>a <b>don't care</b> or <b>unknown</b></p>
+								<p>This enables the search for <i>incomplete data</i></p>
+							</div>
+							<div>
+								<img src="./media/TCAM.png" />
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2>Ternary Weights Neural Networks</h2>
+						<div class=double-column >
+							<div>
+								<p style="text-align: left">Microsoft recently published <b>BitNet</b>, an LLM framework with only ternary weights. </p>
+							</div>
+							<div><img src="./media/bitnet.png" /></div>
+						</div>
+					</section>
+					<section>
+						<h2>BitNet Performance</h2>
+						<img src="./media/bitnet_performance.png" />
+					</section>
+				</section>
+
+				<!-- References -->
+				<section>
+					<h1>Conclusions</h1>
+					<ul>
+						<li>Ternary logic can be used to make beautiful computating machines</li>
+						<li>The technology has improved... But are we there yet?</li>
+						<li>Full designs are lost to time (as far as I can tell)</li>
+						<li>Possibility to explore heterogeneous binary/ternary designs </li>
+					</ul>
+				</section>
+				<section>
+					<h2>References</h2>
+					<ul>
+						<li>"The Ternary Manifesto," Douglass W. Jones, <a href="https://homepage.divms.uiowa.edu/~jones/ternary/">Website</a></li>
+						<li>"Third Base," Brian Hayes, American Scientist, Volume 89, Number 6, 2001</li>
+						<li>"Big Data Analytics for intelligent manufacturing systems: A review," J. Wang et al., 2021</li>
+						<li>"Ternary Computers," G. Frieder and C. Luk, MICRO 5: Conference record of the 5th annual workshop on Microprogramming, 1972</li>
+						<li>"Ternary Computers: The Setun and the Setun 70," N.P. Brusentsov, J. R. Alvarez, Springer Berlin Heidelberg, 2011</li>
+						<li>"Ternary Weight Networks," F. Li et al., 2022</li>
+						<li>"Ternary Neural Networks for Resource-Efficient AI Applications," Hande Alemdar et al., 2017</li>
+						<li>"1-bit AI Infra: Part 1.1, Fast and Lossless BitNet b1.58 Inference on CPUs," J. Wang et al., 2024</li>
+						<li>"The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits," S. Ma et al., 2024</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="media/fin.png" />
+					<p style="text-align:right" >Salvatore Pappalardo</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="dist/plugin/notes.js"></script>
+		<script src="dist/plugin/markdown.js"></script>
+		<script src="dist/plugin/highlight.js"></script>
+		<script src="dist/plugin/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width:1920,
+				height:1080,
+
+				slideNumber: true,
+			
+				hash: true,
+				progress:true,
+
+				controls: false,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath],
+			});
+		</script>
+	</body>
+</html>
