@@ -12,6 +12,11 @@ export const config = {
 }
 
 export default async function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("favicon.ico")
+  eleventyConfig.addPassthroughCopy("logo.png")
+  eleventyConfig.addPassthroughCopy("assets/js")
+  
+  
   eleventyConfig.addDataExtension("yaml",
     (contents) => {
       return YAML.parse(contents)
