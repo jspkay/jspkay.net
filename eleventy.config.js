@@ -1,6 +1,9 @@
 import YAML from "yaml";
+
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
+import markdownItFootnote from "markdown-it-footnote";
+
 import pluginTOC from "eleventy-plugin-toc";
 import path from "node:path";
 import * as sass from "sass";
@@ -15,7 +18,8 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico")
   eleventyConfig.addPassthroughCopy("logo.png")
   eleventyConfig.addPassthroughCopy("assets/js")
-  
+  eleventyConfig.addPassthroughCopy("presentations")
+ 
   
   eleventyConfig.addDataExtension("yaml",
     (contents) => {
@@ -53,7 +57,7 @@ export default async function(eleventyConfig) {
 	    html: true,
 	    breaks: false,
 	    linkify: true,
-	  }).use(markdownItAnchor)
+	  }).use(markdownItAnchor).use(markdownItFootnote)
 	);
 
 	eleventyConfig.addPlugin(

@@ -66,14 +66,22 @@ date {
   margin-right: 20%;
 }
 
-div.footnotes ol {
+.footnotes {
   list-style: decimal;
 }
-div.footnotes ol li {
+.footnotes li {
   list-style: decimal;
 }
-div.footnotes ol li p {
+.footnotes li p {
   text-indent: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-style: bold;
 }
 
 @media screen and (max-width: 600px) {
@@ -84,9 +92,8 @@ div.footnotes ol li p {
     display: block;
   }
 }
-@media screen and (min-width: 1200px) {
-  #title-post {
-    position: sticky;
-    top: 0.25em;
-  }
-}
+/* @media screen and (min-width: mr.$layout-breakpoint-xtra-large)
+ * #title-post
+ *  position: sticky
+ *  top: 0.25em
+ *  */

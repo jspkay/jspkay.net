@@ -65,20 +65,22 @@ insciprition somewhere in the city of Marsala (roman name being Lilybaeum).
 To arms!... To arms!... The few soldiers on guard in the towers along the seafront
 rushed toward the sentry who had given the signal.
 
-{: .dialog}
-An officer asked: \
-\- Michele, what is it?... \
-\- Captain, look at the sea, far away: on the horizon.
+An officer asked: 
+<p class=dialog>
+- Michele, what is it?... <br>
+- Captain, look at the sea, far away: on the horizon.
+</p>
 
 The officer sharpened his gaze, scanning the expanse of the sea, calm and
 black, on which the first shadows of evening were already falling.
 
-{: .dialog}
-\- I see sails - he said, after a while.\
-\- Sails, yes, but of pirate ships - replied Michele, who, unlike his
-superior, had the sharpest vision, like a sailor.\
-\- By God, they are the ships of _lu malu cani_ [^1] - one of the soldiers jumped
+<p class="dialog">
+- I see sails - he said, after a while. <br>
+- Sails, yes, but of pirate ships - replied Michele, who, unlike his
+superior, had the sharpest vision, like a sailor. <br>
+- By God, they are the ships of _lu malu cani_ [^1] - one of the soldiers jumped
 up to say.
+</p>
 
 _Lu malu cani_ was the Tunisian corsair Borghut, who with his tartans
 attacked the Christian ships he encountered in the Mediterranean,
@@ -114,8 +116,9 @@ The pirates in overflowing numbers were screaming in a demonic way. They were
 all dressed in the Turkish fashion, brandishing curved scimitars.
 Their cry could be clearly heard:
 
-{: .dialog}
-\- Allah!... Allah!... Moamed!... [^4]
+<p class=dialog >
+- Allah!... Allah!... Moamed!... [^4]
+</p>
 
 They jumped off the ships and like so many locusts invaded the esplanade
 of the port.
@@ -148,12 +151,13 @@ listen to the Holy Mass at the Cathedral.
 
 She was talking to her husband when she heard a great cry of fear outside.
 
-{: .dialog}
-\- The bad dogs!... The sea thieves!... [^5] \
-\- Are pirates attacking us? - Angelo said, and breathless he tried to get up\
-to sit on the bed.
-\- The Turkish pirates - Scibilia repeated frightened while clutching her son
+</p class=dialog>
+- The bad dogs!... The sea thieves!... [^5] <br>
+- Are pirates attacking us? - Angelo said, and breathless he tried to get up
+to sit on the bed. <br>
+- The Turkish pirates - Scibilia repeated frightened while clutching her son
 to her chest.
+</p>
 
 But, as soon as she had time to get up, a crowd of those devils, screaming
 wildly, rushed in. One, who seemed to be the leader, came forward, grabbed
@@ -164,18 +168,20 @@ defend herself and her child with all her strength.
 
 The corsair tried to drag her by force, shouting horribly in his language.
 
-{: .dialog}
-\- Leave me alone, antichrists!... Leave me alone!... - the woman shouted
+<p class=dialog>
+- Leave me alone, antichrists!... Leave me alone!... - the woman shouted
 again.
+</p>
 
 But, four pirates covered in blood[^6] threw themselves on her, one tore the
 child from her arm, threw him to the ground and trampled him, the others
 dragged her out to take her to the ships. Scibilia did not stop shouting at
 the top of her lungs:
 
-{: .dialog}
-\- Let go!... Leave me alone, bandits!... dogs!... My son!... give me my
+<p class=dialog>
+- Let go!... Leave me alone, bandits!... dogs!... My son!... give me my
 son!... Angelo, help me Angelo!... God will punish you, murderers!...
+</p>
 
 But, Angelo could not help her at all because he had been wounded, from the
 first moment, with a blow from a scimitar and now he was lying unconscious in
@@ -184,10 +190,11 @@ his bed covered in blood.
 Scibilia Nobili was dragged to the marina, she was carried by weight onto one
 of the ships while she screamed at the top of her lungs:
 
-{: .dialog}
-\- Murderers, give me my son! Murderers, give me my son! - and gathering
+<p class=dialog>
+- Murderers, give me my son! Murderers, give me my son! - and gathering
 her last strength she tried to free himself from the hands of the pirates to
 throw herself into the sea.
+</p>
 
 Her son was dead!
 
@@ -205,9 +212,10 @@ But, the poor Scibilia Nobili, a few days after having touched the soil of her
 homeland, overcome by the suffering endured in the harem and by emotions, died.
 Her last words were:
 
-{: .dialog}
-\- I'm going to find my son! - While Angelo, who had faced so many dangers to
+<p class=dialog>
+- I'm going to find my son! - While Angelo, who had faced so many dangers to
 free her, cried like a child seeing himself alone once again.
+</p>
 
 In the memory of the people of Marsala, this family drama has remained engraved
 in characters that have defied the centuries, and it was not the only one, and
@@ -221,21 +229,23 @@ verso la sentinella che aveva dato il segnale.
 
 Un ufficilae domandò:
 
-{: .dialog}
-\- Michele, che c'è?...
-\- Capitanom guardate il mare, là lontano: all'orizzonte.
+<p class=dialog>
+- Michele, che c'è?... <br>
+- Capitanom guardate il mare, là lontano: all'orizzonte.
+</p>
 
 L'ufficiale aguzzò lo sguardo scrutando la distesa del mare, placido e nerstro,
 sul quale calavano già le prime ombre della sera.
 
-{: .dialog}
-\- Vedo delle vele - disse, dopo un po'
-\- Vele, sì, ma di navi corsare - rispose Michele, che, a differenza del suo
-superiore, aveva una visione acutissima, da marinaio.
-\- Per Dio, sono le navi di _lu malu cani_ - saltò su a dire uno dei soldati.
+<p class=dialog>
+- Vedo delle vele - disse, dopo un po'<br>
+- Vele, sì, ma di navi corsare - rispose Michele, che, a differenza del suo
+superiore, aveva una visione acutissima, da marinaio. <br>
+- Per Dio, sono le navi di <em>lu malu cani</em> - saltò su a dire uno dei soldati.
+</p>
 
 _Lu malu cani_ era il
-corsaro runisino Borghut, il quale con le sue tartane assaltava le navi
+corsaro tunisino Borghut, il quale con le sue tartane assaltava le navi
 cristiane che incontrava nel Mediterraneo, lungo le coste dell'Africa
 settentrionale e spingeva la sua audacia fino ad assaltare i paesi rivieraschi
 della Scilia e dell'isola di Malta.
@@ -270,8 +280,9 @@ vestiti alla foggia turca, brandivano arcute scimitarre.
 Si
 udiva distintamente il loro grido:
 
-{: .dialog}
-\- Allah!... Allah!... Moamed!...
+<p class=dialog>
+- Allah!... Allah!... Moamed!...
+</p>
 
 Saltarono giù dai bastimenti e come tante cavallette invasero la spianata del
 porto.
@@ -303,36 +314,40 @@ ascoltare la santa Messa alla Cattedrale.
 
 Parlava con suo marito quando udì fuori un grand'urlo di spavento.
 
-{: .dialog}
-\- _Li mali cani!... li latri di mari!..._\
-\- I pirati ci assaltano? - fece Angelo, e tutto affannoso si levava a sedere
-sul letto.\
-\- I pirati turchi! - ripetè Scibilia spaventata e serrandosi al petto il suo
-figliuolo.
+<p class=dialog>
+- _Li mali cani!... li latri di mari!...<br>
+- I pirati ci assaltano? - fece Angelo, e tutto affannoso si levava a sedere
+sul letto.<br>
+- I pirati turchi! - ripetè Scibilia spaventata e serrandosi al petto il suo
+figliuolo.<br>
+</p>
 
 Ma, fece appena in tempo ad alzarsi che una turba di quei diavoli, urlando
 selvaggiamente, si buttò dentro.
 Uno, che pareva il capo, si fece avanti afferrò Scibilia per un braccio e la
 tirò a sè.
 
-{: .dialog}
-\- Indietro, demonio! - urlò Scibilia fattasi improvisamente ferrea, eroica,
+<p class=dialog>
+- Indietro, demonio! - urlò Scibilia fattasi improvisamente ferrea, eroica,
 volendo difendere sè e la sua creatura con tutte le forze.
+</p>
 
 Il corsaro cercava di trascinarla a viva forza gridando orribilmente nella
 sua lingua.
 
-{: .dialog}
-\- Lasciatemi, anticristi!... Lasciatemi!... - urlò ancora la donna.
+<p class=dialog>
+- Lasciatemi, anticristi!... Lasciatemi!... - urlò ancora la donna.
+</p>
 
 Ma, quattro pirati lordi di sangue si buttarono su di lei, uno le strappò il
 bimbo dalle braccio lo scagliò a terra e lo calpestò, gli altri la trascinarono
 fuori per portarla sulle navi.
 Scibilia non cessava di gridare con quanto fiato aveva in gola:
 
-{: .dialog}
-\- Lasciatemi!... Lasciatemi, briganti!... cani!... Mio figlio!... datemi mio
+<p class=dialog>
+- Lasciatemi!... Lasciatemi, briganti!... cani!... Mio figlio!... datemi mio
 figlio!... Angelo, aiutami Angelo!... Dio vi punirà. assassini!...
+</p>
 
 Ma, Angelo non poteva assolutamente aiutarla perchè era stato ferito, fin dal
 primo momento, con un colpo di scimitarra ed ora giaceva svenuto nel suo letto
@@ -341,10 +356,11 @@ tutto pieno di sanuge.
 Scibilia Nobili fu trascinata alla marina, fu portata di peso su una delle navi  
 mentre lei urlava a perdifiato:
 
-{: .dialog}
-\- Assassini, datemi mio figlio! Assassini, datemi mio figlio! - e raccogliendo  
+<p class=dialog>
+- Assassini, datemi mio figlio! Assassini, datemi mio figlio! - e raccogliendo  
 le sue ultime forze cercava di liberarsi dalle mani dei pirati per buttarsi in  
 mare.  
+</p>
 
 Suo figlio era morto!  
 
