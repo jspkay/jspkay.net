@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["page.sass"],"names":[],"mappings":"AAEA;EACE","sourcesContent":["@import \"media_rules\"\n\nmain \n  max-width: 35em\n\n"],"file":"page.css"}

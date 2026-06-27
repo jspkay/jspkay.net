@@ -1,0 +1,18 @@
+:data-x: 0
+:data-y: 0
+
+Silicon Hardware Reliability:
+=============================
+Could less be more ?
+=========================
+
+Salvatore Pappalardo
+--------------------
+
+----
+
+:data-x: r500
+:data-rotate-y: 180
+
+This is some more cool text!
+

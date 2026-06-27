@@ -1,0 +1,46 @@
+.current {
+  color: #000000;
+}
+
+nav {
+  background: #F45B69;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+nav div:not(:first-child) {
+  display: none;
+}
+nav .icon {
+  float: right;
+  display: block !important;
+  position: absolute;
+  right: 0;
+}
+nav a {
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-right: 1em;
+  color: white;
+}
+
+nav.show-menu div:not(:first-child) {
+  display: block;
+}
+
+@media (min-width: 600px) {
+  nav {
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+  }
+  nav div {
+    display: block !important;
+  }
+  nav .icon {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=nav.css.map */

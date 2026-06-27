@@ -1,0 +1,366 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Silicon Hardwrea Reliability: Could less be more? - Salvatore Pappalardo</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" /> -->
+
+
+    <link href="css/theme.css" rel="stylesheet" type="text/css" />
+    <link href="css/impress-common.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+<!--
+<div id="debug" style="position: absolute; top:50%; left:50%; z-index:1000; background-color:white; color:black">DEBUG</div>
+-->
+ 
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="madewith">
+  <p>
+    Made with ❤️ and impress.js
+  </p>
+</div>
+
+
+<div id="impress"
+    
+    data-width="1920"
+    data-height="1080"
+    data-transition-duration="250"
+    >
+
+      <div id="title" class="step" data-x=0 data-y=0 data-scale=2>
+        <div id="titleh1">
+          <h1>Silicon Hardware Reliability:</h1>
+          <h1>Could Less Be More?</h1>
+        </div>
+        <div id="titleh2">
+          <h2>Salvatore Pappalardo</h2>
+        </div>
+        <div id="title-supervisors">
+          <!--<h4>Supervisors: </h4> -->
+          <h3>Alberto Bosio</h3>
+          <h3>Bastien Deveautour</h3>
+        </div>
+      </div>
+
+      <div id="werenotalone" class="step" data-x=5000 data-y=0 data-scale=2>
+        <h1>We are not alone* in the Universe</h1>
+        <h2>* The Universe is full of galaxies, stars and planets</h2>
+        <!--<h2>*Earth is not the only planet</h2>-->
+      </div>
+
+      <div id="gamma-ray" class="step" data-x=10000 data-y=0 data-scale=2>
+        <h1>Cosmic Radiation</h1>
+        <!-- <p>Source: <a href="https://svs.gsfc.nasa.gov/20378/">NASA</a></p> -->
+      </div>
+
+      <div id="start-video-gamma" class="step" data-y=1000 data-scale=2>
+        <video id="video-gamma"
+          preload="auto"
+          src="media/gamma_ray_burst.webm"
+          type="video/webm" > </video>
+        <p class="source">NASA SVS - Gamma Ray Burst Simulation (ID: 20378) </p>
+        <h1>Gamma Ray Bursts are generated from supernovas: implosions of rapidly rotating massive stars</h1>
+        <!--<p>Astronomers think a long GRB (gamma-ray burst) arises from a massive, rapidly rotating star when its core runs out of fuel and collapses, forming a black hole in the star’s center. In this artist's concept, the camera flies into a vast cloud of dust and gas the star has been steadily ejecting over thousands of years. Near the star, a particle jet driven by matter falling toward the black hole erupts from the surface at nearly the speed of light. A more distant view reveals two jets moving in opposite directions, extending into and interacting with the cloud material, and producing the GRB and its afterglow. To detect a GRB, one of these jets must point toward Earth.</p> -->
+      </div>
+
+      <div id="expl-gamma-ray-sky" class="step" data-x=10000 data-y=3245 data-scale=2>
+        <h1>Gamma Ray Sky</h1>
+        <!-- <p> Source: <a href="https://svs.gsfc.nasa.gov/3439">NASA</a></p> -->
+        <p>A simulation movie of the high-energy gamma-ray sky as it might appear over the course of a year</p>
+      </div>
+
+      <div id="start-gamma-ray-sky" class="step" data-scale=2>
+        <video id="gamma-ray-sky" 
+          preload="auto"
+          src="media/gamma_ray_sky.webm"
+          type="video/webm" ></video>
+        <p class=source>NASA SVS - Gamma Ray Sky Simulation (ID: 3439) </p>
+      </div> 
+
+      <div id="cosmic-rays" class="step seu" data-x=10000 data-y=6000  data-scale=1>
+        <h1>Cosmic Rays</h1>
+        <div>
+          <div><img src="media/cosmic_rays.jpg" /></div>
+          <p>Particles from outer space reach the Earth and react with it, making secondary cosmic radiation</p>
+          <!-- <p>A single-event upset (SEU), also known as a single-event error (SEE), is a change of state caused by one single ionizing particle (e.g. ions, electrons, photons) striking a sensitive node in a live micro-electronic device, such as in a microprocessor, semiconductor memory, or power transistors.</p> -->
+        </div>
+        <!-- <p>Source: <a href=https://en.wikipedia.org/wiki/Single-event_upset>wikipedia</a></p> -->
+        <p class="source" >Glick A., Characterizing the spatial distribution of cosmogenic background neutrons for enhanced localization of special nuclear materials via neutron signatures, 2021</p>
+      </div>
+
+      <div id="seu-on-phone" class="step seu" data-x=10000 data-y=7100 data-scale=1>
+        <h1>Single Event Upset (SEU)</h1>
+        <div>
+          <div><img src="media/seu_phone.png" /></div>
+          <div>
+              <div><img src="media/seu_gate.png" /></div>
+              <div><img src="media/seu_logic.png" /></div>
+          </div>
+        </div>
+        <p class="source">Wang F., Agrawal V. D., Single Event Upset: An Embedded Tutorial, 2008</p>
+      </div>
+
+      <div id="no-more-kittens" class="seu step" data-x=10000 data-y=8250 data-scale=1>
+        <div><p>No more cute kittens</p></div>
+        <div><img src="media/kittens.jpeg" /> </div>
+      </div>
+
+      <div id="seriuosly-though" class="step seu" data-x=10000 data-y=9400 data-scale=1>
+        <h1>Seriously though...</h1>
+        <div><img src="media/seu_training.svg" /></div -->
+        <!-- <p>Source: <a href="" >Data Center Silent Data Errors: Implications to  Artificial Intelligence Workloads & Mitigations</a></p> -->
+        <p class="source">Bittel B. et al., Data Center Silent Data Errors: Implications to  Artificial Intelligence Workloads & Mitigations, 2024</p>
+      </div>
+
+      <div class="step" data-x=10000 data-y=1000 data-transition-duration=1500 data-scale=4>
+      </div>
+
+
+
+
+
+
+
+
+      <!-- Redundancy Section -->
+      <div id="what-to-do" class="step" 
+        class="step" 
+        data-x=21000 
+        data-y=0 
+        data-transition-duration=1500
+        data-scale=2 >
+        <h1>What can we do about it ?</h1>
+      </div>
+  
+      <div class="step" id="answer" data-scale=2>
+        <h1>Redundancy</h1>
+      </div>
+
+
+
+      <!-- Temporal Redundancy -->
+      <div class="step temporal-redundancy" data-x=19830 data-y=600 data-scale=1>
+        <div> <h3>Temporal <br /> Redundancy</h3> </div>
+      </div>
+
+      <div id="closedcar" class="temporal-redundancy step" data-y=1000 data-scale=1>
+        <div>
+          <div><h2>Did you lock your car ?</h2> </div>
+          <img src=https://static.epermittest.com/media/filer_public/55/d9/55d9e493-9943-478e-bc55-63a7d1599a9a/leaving-your-car.jpg />
+        </div>
+      </div>
+
+      <div id="temporal-redundancy-explaination" class="step temporal-redundancy" data-y=1800 data-y>
+        <p>Parity bits can be used to detect error. Computation is executed again</p>
+        <div><img src="media/parity.png" /></div>
+      </div>
+
+      <!-- Spatial Redundancy -->
+      <div class="step spatial-redundancy" data-x=22170 data-y=600 data-scale=1>
+        <div><h3>Spatial <br /> Redundancy</h3> </div>
+      </div>
+
+      <div id="spatial-redundancy-directions" class="step spatial-redundancy" data-y=1000 data-scale=1>
+        <div><p>But is this the right direction ?</p></div>
+        <div><img src="media/spatial_redundancy_directions.png" /></div>
+      </div>
+
+      <div id="spatial-redundancy-tmr" class="step spatial-redundancy" data-y=2290 data-scale=1>
+        <div><p>Triple Modular Redundancy</p></div>
+        <div><img src="media/tmr.jpg" /></div>
+      </div>
+
+      <!-- Redundancy is costly -->
+      <div id="redundancy-expensive" class="step overview" data-x=21000 data-y=700 data-scale=4>
+        <div id="redundancy-background"></div>
+      </div>
+
+      <div id="redundancy-expensive-final" class="step" data-x=25000 data-y=700 data-scale=4>
+        <div></div>
+        <div>
+          <p>This is expensive</p>
+        </div>
+        <div></div>
+      </div>
+
+
+
+      <!-- Let's use approximation --> 
+      <div class="step axc" data-x=21000 data-y=850 data-scale=4 data-rotate-y=180 data-z=-200>
+        <div><p>Let's use approximation!</p></div>
+      </div>
+
+      <div id="axc-joke" class="step" data-scale=4 data-rotate-y=180>
+        <div><img src="media/axc.jpg" /></div>
+      </div>
+
+      <div id="leading-digit-axc" class="step axc" data-y=4000 data-scale=1 data-rotate-y=180>
+        <div>
+          <p>
+            Making computations in an approximate way
+          </p>
+        </div>
+        <div>
+          <div><img src="media/axc_precise.png"/></div>
+          <div><img src="media/axc_approximated.png"/></div>
+        </div>
+      </div>
+
+      <div id="leading-digit-axc-mult" class="step axc" data-scale=1 data-y=5100 data-rotate-y=180>
+        <div><p>We can do the same with multiplication</p></div>
+        <div>
+          <div><img src="media/axc_mult_accurate.png" /></div>
+          <div><img src="media/axc_mult_approximate.png" /></div>
+        </div>
+      </div>
+
+      <div id="axc-end" class="step axc" data-scale=1 data-y=6600 data-rotate-y=180>
+        <div>
+          <p>
+            Could it be used to attenuate the effect of errors ?
+          </p>
+        </div>
+      </div>
+
+      <div class="step" data-x=21000 data-y=1000 data-scale=4
+        data-transition-duration=1500 
+        data-rotate-y=180 ></div>
+
+
+
+
+
+
+
+      <!-- experiments and results -->
+      <div id="wedidexperiments" class="step eandr" data-x=15000 data-y=0 data-scale=2 
+        data-rotate-y=180
+        data-transition-duration=500 >
+        <div><p>
+          Well, we did some experiments
+        </p></div>
+      </div>
+
+
+      <div id="lenet" class="step eandr" data-scale=2 data-y=2300 data-rotate-y=180>
+        <h1>Neural Network</h1>
+        <div><img src="media/lenet.png" /></div>
+        <div><img src="media/mnist.png" /></div>
+      </div>
+
+      <div class="step"
+        data-scale=1
+        data-rotate-y=180
+        data-x=16670
+        data-y=3300>
+      </div>
+
+      <div class="step"
+        data-scale=2
+        data-rotate-y=180
+        data-x=15000
+        data-y=2300>
+      </div>
+
+      <div id="evoapproxlib" class="step eandr" data-scale=2 data-y=4700 data-rotate-y=180>
+        <div><p>Approximate multplier library</p></div>
+        <div><img src="media/evoapproxlib.png" /></div>
+      </div>
+
+      <div 
+        id="axc-mults"
+        class="step eandr" 
+        data-scale=2 
+        data-y=7000 
+        data-rotate-y=180
+      >
+        <div><p>Used Multipliers</p></div>
+        <div><img src="media/axc_mults_1.png" /></div>
+      </div>
+
+      <div id="axc-baseline"
+        class="step eandr"
+        data-scale=2
+        data-y=9000
+        data-rotate-y=180
+      >
+        <div><p>Multiplier Baseline</p></div>
+        <div>
+          <img src="media/axc_accuracy.png" />
+        </div>
+      </div>
+
+      <div id="axc-results" class="step eandr" data-scale=2 data-y=11000 data-rotate-y=180 >
+        <div><p>Error Robustness</p></div>
+        <div><img src="media/safety_resume.png" /></div>
+      </div>
+
+      <div id="axc-results-highlight" class="step" data-scale=2 data-y=11000 data-rotate-y=180 >
+        <svg>
+          <ellipse ry=200 rx=100 cx=140 cy=400 fill="#00000000" stroke="red" stroke-width="10"></ellipse>
+          <ellipse ry=200 rx=100 cx=1200 cy=400 fill="#00000000" stroke="red" stroke-width="10"></ellipse>
+        </svg>
+      </div>
+
+
+      <div id="axc-gain" class="step eandr" data-scale=2 data-y=13000 data-rotate-y=180>
+        <p>And we also gain some energy!</p>
+        <div><img src="media/axc_gain.svg" /></div>
+      </div>
+
+      <!-- Finaly overview 180degrees -->
+      <div class="step overview" data-scale=15 data-x=10000 data-y=5000 data-rotate-y=180>
+      </div>
+
+      <!-- Finaly overview -->
+      <div class="step overview" data-scale=15 data-x=10000 data-y=5000>
+      </div>
+
+      <div 
+        class="step"
+        data-x=1120 data-y=1000 data-z=0 data-scale=2 >
+      </div>
+
+      <div id="start-drop" 
+        class="step" data-scale=2
+      >
+        <audio id="drop" >
+          <source src="media/salvo_by_moroder.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <div id="thanks" 
+        class="step keep-playing"
+        data-scale=2
+      >
+        <div class="theend"><p>Thank you</p></div>
+        <img src="media/fin.png" />
+      </div>
+
+</div>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+<script src="js/skip.js"></script> <!-- skip plugin for impress -->
+<script src="js/complex.js"></script>
+
+</body>
+</html>
