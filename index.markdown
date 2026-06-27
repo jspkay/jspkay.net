@@ -9,6 +9,6 @@ layout: page
 
 Welcome to jspkay.net !
 
-I am Salvatore Pappalardo (Salvo for the friends) and I just post shit I like <i class="em em-man-shrugging" aria-role="presentation" aria-label=""></i>
+I am Salvatore Pappalardo (Salvo for the friends) and I just post about stuff I like <i class="em em-man-shrugging" aria-role="presentation" aria-label=""></i>
 
 Check [this](/about.html) out to know more about me.

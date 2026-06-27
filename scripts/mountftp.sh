@@ -4,5 +4,10 @@ if [ -z ${JSPKAY_FTP_PASSWORD+x} ]; then
   read JSPKAY_FTP_PASSWORD
 fi
 
+if [ ! -d ftp ]
+then
+  mkdir ftp
+fi
+
 # mount the ftp directory
 curlftpfs jspkay:$JSPKAY_FTP_PASSWORD@ftp.jspkay.altervista.org ftp
