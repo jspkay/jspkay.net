@@ -1,11 +1,14 @@
+#!/bin/bash
+
 # current path directory
 #   we basically take the current scripts dir and append it to path temporarily
 cpd=$(dirname "$(pwd)/${BASH_SOURCE[0]}")
 PATH="$PATH:$cpd"
 
-echo "building the website..."
-# update the build
-bundle exec jekyll build --verbose --incremental --trace
+if [ $# == 2 -a $1 != "skip-build" ]; then
+  echo "building the website..."
+  build.sh
+fi
 
 echo "mounting ftp resource..."
 # This is now in $cpd
