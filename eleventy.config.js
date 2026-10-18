@@ -19,6 +19,9 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("logo.png")
   eleventyConfig.addPassthroughCopy("assets/js")
   eleventyConfig.addPassthroughCopy("presentations")
+  eleventyConfig.addPassthroughCopy({
+    "misc/darines28/dist": "/misc/darines28"
+  })
  
   
   eleventyConfig.addDataExtension("yaml",
