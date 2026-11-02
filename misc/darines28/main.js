@@ -2,30 +2,100 @@ import * as THREE from 'three'
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 
+// A cell is in the center.
+//    -- 1
+// 2 |  | 4
+//    -- 8
+// The walls are with the bits
+
+let SCALE_FACTOR = 1;
+
 const maze = [
-  [ 1, 1, 1, 1, 1, 1 , 1 , 1 , 1 , 1 ],
-  [ 1, 0, 0, 0, 0, 0 , 1 , 0 , 0 , 1 ],
-  [ 1, 0, 1, 1, 0, 0 , 0 , 0 , 1 , 1 ],
-  [ 1, 0, 0, 1, 0, 0 , 0 , 0 , 0 , 1 ],
-  [ 1, 1, 0, 0, 0, 0 , 1 , 0 , 0 , 1 ],
-  [ 1, 1, 1, 1, 1, 1 , 1 , 1 , 1 , 1 ],
+      //               5                   10                   15                 20
+ /* X */ [ 3, 2, 3, 1, 1,      3, 3, 3, 1, 1,       1, 1, 1, 1, 3,     1, 3, 1, 3, 1,       2 ],
+ /* X */ [ 1, 0, 2, 1, 2,      2, 2, 2, 2, 3,       1, 1, 1, 0, 2,     1, 2, 2, 1, 0,       2 ],
+ /*   */ [ 2, 1, 1, 1, 0,      2, 2, 0, 2, 0,       1, 3, 1, 0, 2,     1, 1, 1, 1, 0,       2 ],
+ /*   */ [ 3, 1, 3, 1, 0,      2, 1, 3, 1, 0,       2, 2, 1, 1, 1,     3, 0, 3, 1, 0,       2 ],
+ /* 5 */ [ 2, 2, 2, 1, 1,      0, 2, 3, 2, 2,       2, 2, 3, 2, 2,     0, 1, 1, 3, 0,       2 ],
+
+ /*   */ [ 2, 2, 1, 1, 0,      3, 0, 2, 2, 2,       1, 0, 0, 2, 3,     3, 1, 0, 2, 1,       2 ],
+ /*   */ [ 2, 2, 1, 2, 1,      1, 0, 0, 0, 2,       3, 1, 1, 0, 2,     1, 1, 0, 1, 2,       2 ],
+ /*   */ [ 2, 1, 1, 0, 2,      2, 3, 1, 1, 0,       1, 1, 3, 0, 2,     3, 1, 1, 0, 0,       2 ],
+ /*   */ [ 3, 1, 1, 2, 2,      3, 3, 0, 3, 1,       1, 0, 0, 2, 0,     2, 1, 1, 1, 1,       2 ],
+ /* 10*/ [ 2, 1, 1, 0, 3,      0, 1, 0, 2, 1,       3, 1, 1, 1, 1,     1, 1, 1, 1, 1,       2 ],
+
+ /*   */ [ 3, 1, 1, 1, 0,      1, 1, 1, 0, 2,       1, 1, 0, 3, 1,     1, 3, 3, 1, 2,       2 ],
+ /*   */ [ 2, 3, 1, 1, 1,      1, 1, 1, 0, 1,       1, 1, 1, 0, 1,     1, 0, 1, 0, 0,       2 ],
+ /*   */ [ 3, 3, 2, 1, 1,      1, 3, 1, 1, 1,       1, 1, 3, 3, 1,     1, 1, 3, 1, 1,       2 ],
+ /*   */ [ 2, 2, 3, 2, 3,      1, 2, 1, 2, 2,       2, 2, 2, 1, 1,     1, 2, 2, 1, 1,       2 ],
+ /* 15*/ [ 2, 2, 2, 0, 2,      1, 3, 0, 3, 1,       1, 2, 1, 1, 0,     2, 0, 2, 3, 2,       2 ],
+
+ /*   */ [ 2, 0, 1, 0, 3,      2, 0, 3, 0, 1,       2, 2, 2, 3, 2,     1, 2, 2, 2, 2,       2 ],
+ /*   */ [ 2, 3, 1, 0, 2,      1, 2, 1, 2, 1,       2, 3, 0, 2, 2,     3, 0, 2, 2, 2,       2 ],
+ /*   */ [ 2, 2, 1, 2, 2,      2, 2, 3, 0, 3,       0, 2, 2, 2, 3,     0, 2, 3, 0, 2,       2 ],
+ /*   */ [ 2, 2, 3, 0, 2,      1, 0, 1, 0, 0,       2, 1, 0, 0, 1,     1, 0, 0, 0, 2,       2 ],
+ /* 20*/ [ 3, 2, 1, 0, 2,      2, 3, 1, 3, 1,       1, 1, 1, 3, 1,     1, 1, 1, 0, 2,       2 ],
+
+ /*   */ [ 2, 3, 1, 2, 2,      2, 1, 2, 0, 2,       3, 2, 1, 0, 3,     3, 1, 2, 2, 2,       2 ],
+ /*   */ [ 2, 0, 2, 2, 2,      1, 0, 3, 1, 2,       2, 2, 3, 1, 0,     2, 2, 3, 0, 2,       2 ],
+ /*   */ [ 2, 3, 0, 2, 2,      2, 1, 2, 1, 0,       0, 2, 1, 2, 3,     1, 0, 0, 1, 0,       2 ],
+ /*   */ [ 3, 0, 3, 0, 2,      1, 2, 2, 1, 3,       1, 2, 2, 2, 2,     3, 0, 1, 1, 1,       2 ],
+ /* 25*/ [ 2, 1, 0, 1, 0,      2, 1, 0, 1, 0,       1, 0, 2, 0, 1,     0, 2, 1, 2, 2,       2 ],
+
+ /*   */ [ 1, 1, 1, 1, 1,      1, 1, 1, 1, 1,       1, 1, 1, 1, 1,     1, 1, 1, 1, 1,       1 ],
 ];
 
 function setup_maze(scene){
-  const wallGeometry = new THREE.BoxGeometry(1, 10, 1);
+
+  
+  const topBottomWallGeo = new THREE.BoxGeometry(SCALE_FACTOR, 10, SCALE_FACTOR*0.1);
+  const leftRightWallGeo = new THREE.BoxGeometry(SCALE_FACTOR*0.1, 10, SCALE_FACTOR);
   const wallMaterial = new THREE.MeshStandardMaterial({
     color: 0x66688aa 
   });
   wallMaterial.side = THREE.DoubleSide;
 
+  /// DEBUG
+  const ballGeo = new THREE.SphereGeometry(SCALE_FACTOR,);
+  const origin = new THREE.Mesh(ballGeo, wallMaterial);
+  origin.position.set(0, 0, 0);
+  scene.add(origin);
+
   for(let z = 0; z < maze.length; z++){
     for(let x = 0; x < maze[z].length; x++){
-      if( maze[z][x] == 1 ){
-        const wall = new THREE.Mesh( wallGeometry, wallMaterial );
-        console.log("Adding wall at position ", x, 1, z);
-        wall.position.set(x,4,z);
+
+      let xPos = x;
+      let zPos = z;
+
+      if( (maze[z][x] & 1) != 0 ) {  // top walls
+        xPos = (x) * SCALE_FACTOR ;
+        zPos = (z-0.5)* SCALE_FACTOR;
+
+        const wall = new THREE.Mesh( topBottomWallGeo, wallMaterial );
+        console.log("Adding wall at position ", xPos, zPos, wall );
+        wall.position.set(
+          xPos,
+          4,
+          zPos
+        );
         scene.add(wall);
+        window.wall1=wall;
       }
+
+      if( (maze[z][x] & 2) != 0) {  // left walls
+        xPos = (x-0.5)* SCALE_FACTOR;
+        zPos = (z) * SCALE_FACTOR ;
+        const wall = new THREE.Mesh( leftRightWallGeo, wallMaterial );
+        console.log("Adding wall at position ", xPos, zPos, wall );
+        wall.position.set(
+          xPos,
+          4,
+          zPos
+        );
+        scene.add(wall);
+        window.wall2=wall;
+      }
+
     }
   }
 
@@ -45,6 +115,49 @@ function setup_maze(scene){
   floor.position.set( maze.length/2+2 , 0, maze[0].length/2-2);
   window.floor = floor;
 }
+// const maze = [
+//   [ 1, 1, 1, 1, 1, 1 , 1 , 1 , 1 , 1 ],
+//   [ 1, 0, 0, 0, 0, 0 , 1 , 0 , 0 , 1 ],
+//   [ 1, 0, 1, 1, 0, 0 , 0 , 0 , 1 , 1 ],
+//   [ 1, 0, 0, 1, 0, 0 , 0 , 0 , 0 , 1 ],
+//   [ 1, 1, 0, 0, 0, 0 , 1 , 0 , 0 , 1 ],
+//   [ 1, 1, 1, 1, 1, 1 , 1 , 1 , 1 , 1 ],
+// ];
+
+// function setup_maze(scene){
+//   const wallGeometry = new THREE.BoxGeometry(0.1, 10, 0.1);
+//   const wallMaterial = new THREE.MeshStandardMaterial({
+//     color: 0x66688aa 
+//   });
+//   wallMaterial.side = THREE.DoubleSide;
+
+//   for(let z = 0; z < maze.length; z++){
+//     for(let x = 0; x < maze[z].length; x++){
+//       if( maze[z][x] == 1 ){
+//         const wall = new THREE.Mesh( wallGeometry, wallMaterial );
+//         console.log("Adding wall at position ", x, 1, z);
+//         wall.geo.set(x,4,z);
+//         scene.add(wall);
+//       }
+//     }
+//   }
+
+//   // floor
+//   const floorGeom = new THREE.PlaneGeometry(
+//     maze.length,
+//     maze[0].length,
+//   )
+//   const floorMaterial = new THREE.MeshStandardMaterial({
+//     color: 0xF1BDCE
+//   });
+//   floorMaterial.side = THREE.DoubleSide;
+//   const floor = new THREE.Mesh(floorGeom, floorMaterial);
+//   scene.add(floor);
+//   floor.rotateX(Math.PI / 2);
+//   floor.rotateZ(Math.PI / 2);
+//   floor.position.set( maze.length/2+2 , 0, maze[0].length/2-2);
+//   window.floor = floor;
+// }
 
 const keys = {};
 
@@ -57,6 +170,7 @@ function is_wall(newPos){
 const PLAYER_RADIUS = 0.2;
 
 function collides(x, z) {
+  return false;
   const r = PLAYER_RADIUS;
 
   const minX = Math.floor(x - r + 0.5);
@@ -146,7 +260,7 @@ function animate(time){
   );
 
   if( keys["KeyM"] ) window.floor.rotateX(Math.PI/2);
-  console.log(window.floor.rotation);
+  // console.log(window.floor.rotation);
 
   renderer.render ( scene, camera );
 }
@@ -198,7 +312,8 @@ function main(){
   
   setup_maze(scene);
 
-  camera.position.set(1, 1.16, 1);
+  // camera.position.set(1, 1.16, 1);
+  camera.position.set(1, 10, 1);
   camera.lookAt( 1.5, 1.16, 1.5);
   const direction = new THREE.Vector3();
   camera.getWorldDirection(direction)
